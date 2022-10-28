@@ -115,6 +115,24 @@ def solve(grid): return search(parse_grid(grid))
 def solveProfondeur(grid): return purProfondeurSearch(parse_grid(grid))
 def solveHeuristique(grid): return search_heuristique(parse_grid(grid))
 
+def solveHillClimbing(grid):
+    values=parse_grid(grid)
+    boxs=[units['B2'][2],units['B5'][2],units['B8'][2],units['E2'][2],units['E5'][2],units['E8'][2],units['H2'][2],
+          units['H5'][2],units['H8'][2]]
+    for box in boxs:
+        digitrest='123456789'
+        for b in box:
+            if len(values[b]) == 1:
+                digitrest=digitrest.replace(values[b],'')
+
+        for b in box:
+            if len(values[b])!=1:
+                values[b]=digitrest[0]
+                digitrest=digitrest.replace(values[b],'')
+    return values
+
+
+
 def search(values):
     "Using depth-first search and propagation, try all possible values."
     if values is False:
@@ -148,10 +166,6 @@ def search_heuristique(values):
     if all(len(values[s]) == 1 for s in squares):
         return values ## Solved!
 
-
-
-
-
     for  s in squares:
         if len(values[s]) > 1:
             if len(values[s]) == 2:
@@ -166,7 +180,7 @@ def search_heuristique(values):
                 if existe_Naked_Pairs_Cols == True:
                     for c in units[s][0] :
                         if c != s and c != col:
-                            for i in naked_Pairs :
+                            for i in naked_Pairs:
                                 values[c] = values[c].replace(i,'')
 
                 for row in units[s][1] :
@@ -218,6 +232,35 @@ def search_heuristique(values):
     n,s = min((len(values[s]), s) for s in squares if len(values[s]) > 1)
     return some(search_heuristique(assign(values.copy(), s, d))
                 for d in values[s])
+
+
+
+
+
+def search_hill_climbing(values):
+    "Using depth-first search and propagation, try all possible values."
+    if values is False:
+        return
+    if all(len(values[s]) == 1 for s in squares):
+        return values ## Solved!
+    ## Chose the unfilled square s with the fewest possibilities
+
+    n,s = min((len(values[s]), s) for s in squares if len(values[s]) > 1)
+    return some(search(assign(values.copy(), s, d))
+                for d in values[s])
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -327,12 +370,15 @@ def random_puzzle(N=17):
 grid1  = '003020600900305001001806400008102900700000008006708200002609500800203009005010300'
 grid2  = '4.....8.5.3..........7......2.....6.....8.4......1.......6.3.7.5..2.....1.4......'
 hard1  = '.....6....59.....82....8....45........3........6..3.54...325..6..................'
-    
+display(parse_grid(grid2))
+display(solveHillClimbing(grid2))
+
+
 if __name__ == '__main__':
     test()
-    solve_all(from_file("top95.txt"), "top95", None)
-    solve_all_pur_profondeur(from_file("top95.txt"), "top95", None)
-    solve_all_heuristique(from_file("top95.txt"), "top95", None)
+    #solve_all(from_file("top95.txt"), "top95", None)
+    #solve_all_pur_profondeur(from_file("top95.txt"), "top95", None)
+    #solve_all_heuristique(from_file("top95.txt"), "top95", None)
     #solve_all(from_file("easy50.txt", '========'), "easy", None)
     # solve_all(from_file("easy50.txt", '========'), "easy", None)
     # solve_all(from_file("top95.txt"), "hard", None)
