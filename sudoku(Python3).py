@@ -26,7 +26,8 @@ units = dict((s, [u for u in unitlist if s in u])
              for s in squares)
 peers = dict((s, set(sum(units[s],[]))-set([s]))
              for s in squares)
-
+boxs=[units['B2'][2],units['B5'][2],units['B8'][2],units['E2'][2],units['E5'][2],units['E8'][2],units['H2'][2],
+          units['H5'][2],units['H8'][2]]
 ################ Unit Tests ################
 
 def test():
@@ -117,19 +118,20 @@ def solveHeuristique(grid): return search_heuristique(parse_grid(grid))
 
 def solveHillClimbing(grid):
     values=parse_grid(grid)
-    boxs=[units['B2'][2],units['B5'][2],units['B8'][2],units['E2'][2],units['E5'][2],units['E8'][2],units['H2'][2],
-          units['H5'][2],units['H8'][2]]
+
     for box in boxs:
         digitrest='123456789'
         for b in box:
             if len(values[b]) == 1:
                 digitrest=digitrest.replace(values[b],'')
+                values[b] = values[b]+'.'
 
         for b in box:
-            if len(values[b])!=1:
+            if values[b][1]!='.':
                 values[b]=digitrest[0]
                 digitrest=digitrest.replace(values[b],'')
-    return values
+    return search_hill_climbing(values)
+    #return search_hill_climbing(values)
 
 
 
@@ -239,16 +241,47 @@ def search_heuristique(values):
 
 def search_hill_climbing(values):
     "Using depth-first search and propagation, try all possible values."
-    if values is False:
-        return
-    if all(len(values[s]) == 1 for s in squares):
-        return values ## Solved!
+    def numConflit(values):
+        conflit=0
+        for uni in unitlist[:18]:
+            for i in range(9):
+                for j in range(i+1,9):
+                    if values[uni[i]][0]==values[uni[j]][0]:
+                        conflit+=1
+        return conflit
+    num_conflit=numConflit(values)
+    print(num_conflit)
+    if num_conflit==0:
+        return display(values)## Solved!
     ## Chose the unfilled square s with the fewest possibilities
 
-    n,s = min((len(values[s]), s) for s in squares if len(values[s]) > 1)
-    return some(search(assign(values.copy(), s, d))
-                for d in values[s])
+    swapPairs=[]
+    for box in boxs:
+        for i in range(9):
+            if len(values[box[i]][0])==1:
+                for j in range(i + 1,9):
+                    if len(values[box[j]][0])==1:
+                        swapPairs.append([box[i],box[j]])
+    conflitList=[]
+    for sp in swapPairs:
+        valcop = values.copy()
+        a = valcop[sp[0]]
+        valcop[sp[0]]=valcop[sp[1]]
+        valcop[sp[1]] = a
+        nConflit=numConflit(valcop)
+        conflitList.append(nConflit)
 
+    min_index = conflitList.index(min(conflitList))
+    if conflitList[min_index] == num_conflit:
+        print('Arrete, ne trouve pas de solution')
+        return
+    p=swapPairs[min_index]
+    b = values[p[0]]
+    values[p[0]] = values[p[1]]
+    values[p[1]] = b
+    display(values)
+    print()
+    return search_hill_climbing(values)
 
 
 
@@ -371,7 +404,7 @@ grid1  = '0030206009003050010018064000081029007000000080067082000026095008002030
 grid2  = '4.....8.5.3..........7......2.....6.....8.4......1.......6.3.7.5..2.....1.4......'
 hard1  = '.....6....59.....82....8....45........3........6..3.54...325..6..................'
 display(parse_grid(grid2))
-display(solveHillClimbing(grid2))
+solveHillClimbing(grid2)
 
 
 if __name__ == '__main__':
