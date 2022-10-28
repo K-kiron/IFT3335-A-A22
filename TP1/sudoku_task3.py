@@ -55,8 +55,9 @@ def parse_grid(grid):
             return False ## (Fail if we can't assign d to square s.)
     
     #naked pair
-    for u in unitlist:
-        naked_pair(values, u)
+    #for u in unitlist:
+        #naked(values, u)
+        #hidden_single(values, u)
     return values
 
 def grid_values(grid):
@@ -101,13 +102,23 @@ def eliminate(values, s, d):
     return values
 
 ################ Naked pair ################
-def naked_pair(values, cur_units):
+def naked(values, cur_units):
     pair_count = {}
     pair_map = {}
+    triple_count = {}
+    triple_map = {}
 
     for unit in cur_units:
         val = values[unit]
         if len(val) != 2:
+            if len(val) == 3:
+                if val in triple_count:
+                    triple_count[val] += 1
+                    triple_map[val].append(unit)
+                else:
+                    triple_count[val] = 1
+                    triple_map[val] = [unit]
+
             continue
         if val in pair_count:
             pair_count[val] += 1
@@ -116,14 +127,47 @@ def naked_pair(values, cur_units):
             pair_count[val] = 1
             pair_map[val] = [unit]
 
+
     for pair, count in pair_count.items():
         if count != 2:
+            for triple, countTriple in triple_count.items():
+
+                if all(p in triple for p in pair):
+                    triple_count[triple] += count
+                    triple_map[triple]=triple_map[triple]+pair_map[pair]
             continue
         for unit in cur_units:
             if unit in pair_map[pair]:
                 continue
             values = eliminate(values, unit, pair[0])
             values = eliminate(values, unit, pair[1])
+
+    for triple, countTriple in triple_count.items():
+        if countTriple != 3:
+            continue
+        for unit in cur_units:
+            if unit in triple_map[triple]:
+                continue
+
+            values = eliminate(values, unit, triple[0])
+            values = eliminate(values, unit, triple[1])
+            values = eliminate(values, unit, triple[2])
+
+
+def hidden_single(values, cur_units):
+    for i in digits:
+        hidden=False
+        hiddenPositon = ''
+        for unit in cur_units:
+            if i in values[unit]:
+                if hidden==False:
+                    hidden=True
+                    hiddenPositon = unit
+                else:
+                    hidden = False
+                    break
+        if hidden==True:
+            values=assign(values,hiddenPositon,i)
 
 ################ Display as 2-D grid ################
 
@@ -224,11 +268,12 @@ grid1  = '0030206009003050010018064000081029007000000080067082000026095008002030
 grid2  = '4.....8.5.3..........7......2.....6.....8.4......1....2..6.3.7.5..2.....1.4......'
 hard1  = '.....6....59.....82....8....45........3........6..3.54...325..6..................'
 nakedpairexample = '251348796...9172.4..7256.......6.832.......7...8...9.....62...88..7.......25.164.'
-    
+
 if __name__ == '__main__':
     # print(squares)
-    # test()
-    # solve_all(from_file("top95.txt"), "95sudoku", None)
+    test()
+    solve_all(from_file("top95.txt"), "95sudoku", None)
+    solve_all(from_file("1000sudoku.txt"), "easy", None)
     # solve_all(from_file("easy50.txt", '========'), "easy", None)
     # solve_all(from_file("easy50.txt", '========'), "easy", None)
     # solve_all(from_file("top95.txt"), "hard", None)
@@ -237,8 +282,8 @@ if __name__ == '__main__':
     # print(parse_grid(nakedpairexample))
 
 
-    test_values = parse_grid(grid2)
-    display(test_values)
+    #test_values = parse_grid(hard1)
+    #display(test_values)
     # naked_pair(test_values)
     # display(test_values)
 
