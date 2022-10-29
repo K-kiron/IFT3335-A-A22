@@ -58,6 +58,7 @@ def parse_grid(grid):
     #for u in unitlist:
         #naked(values, u)
         #hidden_single(values, u)
+        #hidden_pair(values, u)
     return values
 
 def grid_values(grid):
@@ -101,7 +102,7 @@ def eliminate(values, s, d):
                 return False
     return values
 
-################ Naked pair ################
+################ Naked pair/triple ################
 def naked(values, cur_units):
     pair_count = {}
     pair_map = {}
@@ -154,6 +155,8 @@ def naked(values, cur_units):
             values = eliminate(values, unit, triple[2])
 
 
+################ Hidden single/pair ################
+
 def hidden_single(values, cur_units):
     for i in digits:
         hidden=False
@@ -168,6 +171,30 @@ def hidden_single(values, cur_units):
                     break
         if hidden==True:
             values=assign(values,hiddenPositon,i)
+
+
+def hidden_pair(values, cur_units):
+    for i in digits:
+        for j in digits:
+            if i==j:
+                continue
+            hidden=False
+            hiddenPositon = ''
+            for unit in cur_units:
+                if i in values[unit] and j in values[unit]:
+                    if hidden==False:
+                        hidden=True
+                        hiddenPositon = unit
+                    else:
+                        hidden = False
+                        break
+            if hidden==True:
+                for unit in cur_units:
+                    if unit == hiddenPositon:
+                        continue
+                    values = eliminate(values, unit, i)
+                    values = eliminate(values, unit, j)
+
 
 ################ Display as 2-D grid ################
 
@@ -282,8 +309,8 @@ if __name__ == '__main__':
     # print(parse_grid(nakedpairexample))
 
 
-    #test_values = parse_grid(hard1)
-    #display(test_values)
+    test_values = parse_grid(hard1)
+    display(test_values)
     # naked_pair(test_values)
     # display(test_values)
 
