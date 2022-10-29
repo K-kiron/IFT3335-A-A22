@@ -10,7 +10,8 @@
 ##   u is a unit,   e.g. ['A1','B1','C1','D1','E1','F1','G1','H1','I1']
 ##   grid is a grid,e.g. 81 non-blank chars, e.g. starting with '.18...7...
 ##   values is a dict of possible values, e.g. {'A1':'12349', 'A2':'8', ...}
-
+import itertools
+import random
 def cross(A, B):
     "Cross product of elements in A and elements in B."
     return [a+b for a in A for b in B]
@@ -28,6 +29,7 @@ peers = dict((s, set(sum(units[s],[]))-set([s]))
              for s in squares)
 boxs=[units['B2'][2],units['B5'][2],units['B8'][2],units['E2'][2],units['E5'][2],units['E8'][2],units['H2'][2],
           units['H5'][2],units['H8'][2]]
+print(boxs)
 ################ Unit Tests ################
 
 def test():
@@ -111,6 +113,14 @@ def display(values):
 
 
 ################ Search ################
+def calcul_conflit(values):
+    conflit = 0
+    for uni in unitlist[:18]:
+        for i in range(9):
+            for j in range(i + 1, 9):
+                if values[uni[i]] == values[uni[j]]:
+                    conflit += 1
+    return conflit
 
 def solve(grid): return search(parse_grid(grid))
 def solveProfondeur(grid): return purProfondeurSearch(parse_grid(grid))
@@ -118,20 +128,28 @@ def solveHeuristique(grid): return search_heuristique(parse_grid(grid))
 
 def solveHillClimbing(grid):
     values=parse_grid(grid)
-
+    swapPairs=[]
     for box in boxs:
+        elemNonFixe = []
         digitrest='123456789'
         for b in box:
             if len(values[b]) == 1:
                 digitrest=digitrest.replace(values[b],'')
-                values[b] = values[b]+'.'
+
 
         for b in box:
-            if values[b][1]!='.':
-                values[b]=digitrest[0]
+            if len(values[b]) > 1:
+                values[b]=random.choice(digitrest)
                 digitrest=digitrest.replace(values[b],'')
-    return search_hill_climbing(values)
-    #return search_hill_climbing(values)
+                elemNonFixe.append(b)
+        swapPairs = swapPairs+list(itertools.combinations(elemNonFixe,2))
+
+        conflit=calcul_conflit(values)
+
+
+    return search_hill_climbing(values,swapPairs,conflit)
+    #return values
+
 
 
 
@@ -239,49 +257,45 @@ def search_heuristique(values):
 
 
 
-def search_hill_climbing(values):
+def search_hill_climbing(values,swapPairs,conflit):
     "Using depth-first search and propagation, try all possible values."
-    def numConflit(values):
-        conflit=0
-        for uni in unitlist[:18]:
-            for i in range(9):
-                for j in range(i+1,9):
-                    if values[uni[i]][0]==values[uni[j]][0]:
-                        conflit+=1
-        return conflit
-    num_conflit=numConflit(values)
-    print(num_conflit)
-    if num_conflit==0:
-        return display(values)## Solved!
+    numConflit = conflit
+
+    #print('numConflit: '+str(numConflit))
+    if numConflit==0:
+        #print('reussi')
+        return values## Solved!
     ## Chose the unfilled square s with the fewest possibilities
 
-    swapPairs=[]
-    for box in boxs:
-        for i in range(9):
-            if len(values[box[i]][0])==1:
-                for j in range(i + 1,9):
-                    if len(values[box[j]][0])==1:
-                        swapPairs.append([box[i],box[j]])
     conflitList=[]
     for sp in swapPairs:
-        valcop = values.copy()
-        a = valcop[sp[0]]
-        valcop[sp[0]]=valcop[sp[1]]
-        valcop[sp[1]] = a
-        nConflit=numConflit(valcop)
-        conflitList.append(nConflit)
+        conflitChange = 0
+        for i in [0,1]:
+            for unit in units[sp[i]][:2]:
+                for u in unit:
+                    if u != sp[i] and values[u] == values[sp[i]]:
+                        conflitChange -= 1
+                    j = -1 * i + 1
+                    if u != sp[j] and values[u] == values[sp[j]]:
+                        conflitChange += 1
+
+        conflitList.append(conflitChange)
 
     min_index = conflitList.index(min(conflitList))
-    if conflitList[min_index] == num_conflit:
-        print('Arrete, ne trouve pas de solution')
-        return
+
+    if conflitList[min_index] == 0:
+        #print('Arrete, ne trouve pas de solution')
+        return False
     p=swapPairs[min_index]
     b = values[p[0]]
     values[p[0]] = values[p[1]]
     values[p[1]] = b
-    display(values)
-    print()
-    return search_hill_climbing(values)
+    #display(values)
+
+    num_conflit = calcul_conflit(values)
+    #print(swapPairs[min_index])
+    #print("conflit changer: "+str(conflitList[min_index]))
+    return search_hill_climbing(values,swapPairs,num_conflit)
 
 
 
@@ -381,6 +395,26 @@ def solve_all_heuristique(grids, name='', showif=0.0):
         print ("Solved %d of %d %s puzzles (avg %.2f secs (%d Hz), max %.2f secs by Heuristics Search)." % (
             sum(results), N, name, sum(times)/N, N/sum(times), max(times)))
 
+def solve_all_hill_climbing(grids, name='', showif=0.0):
+    """Attempt to solve a sequence of grids. Report results.
+    When showif is a number of seconds, display puzzles that take longer.
+    When showif is None, don't display any puzzles."""
+    def time_solve(grid):
+        start = time.perf_counter()
+        values = solveHillClimbing(grid)
+        t = time.perf_counter()-start
+        ## Display puzzles that take long enough
+        if showif is not None and t > showif:
+            display(grid_values(grid))
+            if values: display(values)
+            print ('(%.2f seconds)\n' % t)
+        return (t, solved(values))
+    times, results = zip(*[time_solve(grid) for grid in grids])
+    N = len(grids)
+    if N > 1:
+        print ("Solved %d of %d %s puzzles (avg %.2f secs (%d Hz), max %.2f secs by hill climbing)." % (
+            sum(results), N, name, sum(times)/N, N/sum(times), max(times)))
+
 
 def solved(values):
     "A puzzle is solved if each unit is a permutation of the digits 1 to 9."
@@ -405,13 +439,13 @@ grid2  = '4.....8.5.3..........7......2.....6.....8.4......1.......6.3.7.5..2...
 hard1  = '.....6....59.....82....8....45........3........6..3.54...325..6..................'
 #display(parse_grid(grid2))
 #solveHillClimbing(grid2)
-display(solve(grid2))
-
+#display(solve(grid2))
+#display(solveHillClimbing(grid2))
 if __name__ == '__main__':
     test()
     #solve_all(from_file("top95.txt"), "top95", None)
-    #solve_all_pur_profondeur(from_file("top95.txt"), "top95", None)
-    #solve_all_heuristique(from_file("top95.txt"), "top95", None)
+    solve_all_hill_climbing(from_file("top95.txt"), "top95", None)
+    solve_all_hill_climbing(from_file("100sudoku.txt"),"easy", None)
     #solve_all(from_file("easy50.txt", '========'), "easy", None)
     # solve_all(from_file("easy50.txt", '========'), "easy", None)
     # solve_all(from_file("top95.txt"), "hard", None)
