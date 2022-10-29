@@ -293,11 +293,6 @@ def search_hill_climbing(values):
 
 
 
-
-
-
-
-
 ################ Utilities ################
 
 def some(seq):
