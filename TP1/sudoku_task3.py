@@ -55,10 +55,10 @@ def parse_grid(grid):
             return False ## (Fail if we can't assign d to square s.)
     
     #naked pair
-    #for u in unitlist:
-        #naked(values, u)
-        #hidden_single(values, u)
-        #hidden_pair(values, u)
+    for u in unitlist:
+        naked(values, u)
+        hidden(values, u)
+        
     return values
 
 def grid_values(grid):
@@ -155,45 +155,48 @@ def naked(values, cur_units):
             values = eliminate(values, unit, triple[2])
 
 
-################ Hidden single/pair ################
+################ Hidden single/pair/triple ################
 
-def hidden_single(values, cur_units):
-    for i in digits:
-        hidden=False
-        hiddenPositon = ''
-        for unit in cur_units:
-            if i in values[unit]:
-                if hidden==False:
-                    hidden=True
-                    hiddenPositon = unit
+def hidden(values, cur_units):
+    pair_count = {}
+    pair_map = {}
+    triple_count = {}
+    triple_map = {}
+
+    for unit in cur_units:
+        val = values[unit]
+        if len(val) != 2:
+            if len(val) == 3:
+                if val in triple_count:
+                    triple_count[val] += 1
+                    triple_map[val].append(unit)
                 else:
-                    hidden = False
-                    break
-        if hidden==True:
-            values=assign(values,hiddenPositon,i)
+                    triple_count[val] = 1
+                    triple_map[val] = [unit]
+
+            continue
+        if val in pair_count:
+            pair_count[val] += 1
+            pair_map[val].append(unit)
+        else:
+            pair_count[val] = 1
+            pair_map[val] = [unit]
+
+    # for i in digits:
+    #     hidden=False
+    #     hiddenPositon = ''
+    #     for unit in cur_units:
+    #         if i in values[unit]:
+    #             if hidden==False:
+    #                 hidden=True
+    #                 hiddenPositon = unit
+    #             else:
+    #                 hidden = False
+    #                 break
+    #     if hidden==True:
+    #         values=assign(values,hiddenPositon,i)
 
 
-def hidden_pair(values, cur_units):
-    for i in digits:
-        for j in digits:
-            if i==j:
-                continue
-            hidden=False
-            hiddenPositon = ''
-            for unit in cur_units:
-                if i in values[unit] and j in values[unit]:
-                    if hidden==False:
-                        hidden=True
-                        hiddenPositon = unit
-                    else:
-                        hidden = False
-                        break
-            if hidden==True:
-                for unit in cur_units:
-                    if unit == hiddenPositon:
-                        continue
-                    values = eliminate(values, unit, i)
-                    values = eliminate(values, unit, j)
 
 
 ################ Display as 2-D grid ################
