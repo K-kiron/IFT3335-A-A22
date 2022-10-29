@@ -307,11 +307,6 @@ def search_hill_climbing(values,swapPairs,conflit):
 
 
 
-
-
-
-
-
 ################ Utilities ################
 
 def some(seq):

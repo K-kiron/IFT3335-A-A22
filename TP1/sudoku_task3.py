@@ -55,9 +55,10 @@ def parse_grid(grid):
             return False ## (Fail if we can't assign d to square s.)
     
     #naked pair
-    #for u in unitlist:
-        #naked(values, u)
-        #hidden_single(values, u)
+    for u in unitlist:
+        naked(values, u)
+        hidden(values, u)
+        
     return values
 
 def grid_values(grid):
@@ -101,7 +102,7 @@ def eliminate(values, s, d):
                 return False
     return values
 
-################ Naked pair ################
+################ Naked pair/triple ################
 def naked(values, cur_units):
     pair_count = {}
     pair_map = {}
@@ -154,20 +155,49 @@ def naked(values, cur_units):
             values = eliminate(values, unit, triple[2])
 
 
-def hidden_single(values, cur_units):
-    for i in digits:
-        hidden=False
-        hiddenPositon = ''
-        for unit in cur_units:
-            if i in values[unit]:
-                if hidden==False:
-                    hidden=True
-                    hiddenPositon = unit
+################ Hidden single/pair/triple ################
+
+def hidden(values, cur_units):
+    pair_count = {}
+    pair_map = {}
+    triple_count = {}
+    triple_map = {}
+
+    for unit in cur_units:
+        val = values[unit]
+        if len(val) != 2:
+            if len(val) == 3:
+                if val in triple_count:
+                    triple_count[val] += 1
+                    triple_map[val].append(unit)
                 else:
-                    hidden = False
-                    break
-        if hidden==True:
-            values=assign(values,hiddenPositon,i)
+                    triple_count[val] = 1
+                    triple_map[val] = [unit]
+
+            continue
+        if val in pair_count:
+            pair_count[val] += 1
+            pair_map[val].append(unit)
+        else:
+            pair_count[val] = 1
+            pair_map[val] = [unit]
+
+    # for i in digits:
+    #     hidden=False
+    #     hiddenPositon = ''
+    #     for unit in cur_units:
+    #         if i in values[unit]:
+    #             if hidden==False:
+    #                 hidden=True
+    #                 hiddenPositon = unit
+    #             else:
+    #                 hidden = False
+    #                 break
+    #     if hidden==True:
+    #         values=assign(values,hiddenPositon,i)
+
+
+
 
 ################ Display as 2-D grid ################
 
@@ -282,8 +312,8 @@ if __name__ == '__main__':
     # print(parse_grid(nakedpairexample))
 
 
-    #test_values = parse_grid(hard1)
-    #display(test_values)
+    test_values = parse_grid(hard1)
+    display(test_values)
     # naked_pair(test_values)
     # display(test_values)
 
