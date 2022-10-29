@@ -235,7 +235,7 @@ def calcul_conflit(values):
 
 def solve(grid): return search(parse_grid(grid))
 def solveProfondeur(grid): return purProfondeurSearch(parse_grid(grid))
-def solveHeuristique(grid): return purProfondeurSearch(parse_grid_heuristique(grid))
+def solveHeuristique(grid): return search(parse_grid_heuristique(grid))
 
 def solveHillClimbing(grid):
     values=parse_grid(grid)
@@ -329,12 +329,6 @@ def search_hill_climbing(values,swapPairs,conflit):
     #print(swapPairs[min_index])
     #print("conflit changer: "+str(conflitList[min_index]))
     return search_hill_climbing(values,swapPairs,num_conflit)
-
-
-
-
-
-
 
 
 
