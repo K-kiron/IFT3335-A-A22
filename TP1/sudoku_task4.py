@@ -29,7 +29,7 @@ peers = dict((s, set(sum(units[s],[]))-set([s]))
              for s in squares)
 boxs=[units['B2'][2],units['B5'][2],units['B8'][2],units['E2'][2],units['E5'][2],units['E8'][2],units['H2'][2],
           units['H5'][2],units['H8'][2]]
-print(boxs)
+# print(boxs)
 ################ Unit Tests ################
 
 def test():
@@ -438,9 +438,17 @@ hard1  = '.....6....59.....82....8....45........3........6..3.54...325..6.......
 #display(solveHillClimbing(grid2))
 if __name__ == '__main__':
     test()
-    #solve_all(from_file("top95.txt"), "top95", None)
-    solve_all_hill_climbing(from_file("top95.txt"), "top95", None)
+
+    solve_all(from_file("100sudoku.txt"),"easy", None)
+    solve_all_pur_profondeur(from_file("100sudoku.txt"),"easy", None)
+    solve_all_heuristique(from_file("100sudoku.txt"),"easy", None)
     solve_all_hill_climbing(from_file("100sudoku.txt"),"easy", None)
+
+
+
+    #solve_all(from_file("top95.txt"), "top95", None)
+    # solve_all_hill_climbing(from_file("top95.txt"), "top95", None)
+    # solve_all_hill_climbing(from_file("100sudoku.txt"),"easy", None)
     #solve_all(from_file("easy50.txt", '========'), "easy", None)
     # solve_all(from_file("easy50.txt", '========'), "easy", None)
     # solve_all(from_file("top95.txt"), "hard", None)
