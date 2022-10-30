@@ -97,6 +97,7 @@ def eliminate(values, s, d):
     if d not in values[s]:
         return values ## Already eliminated
     values[s] = values[s].replace(d,'')
+    ## Single
     ## (1) If a square s is reduced to one value d2, then eliminate d2 from the peers.
     if len(values[s]) == 0:
         return False ## Contradiction: removed last value
@@ -104,6 +105,7 @@ def eliminate(values, s, d):
         d2 = values[s]
         if not all(eliminate(values, s2, d2) for s2 in peers[s]):
             return False
+    ## Hidden Singles
     ## (2) If a unit u is reduced to only one place for a value d, then put it there.
     for u in units[s]:
         dplaces = [s for s in u if d in values[s]]
@@ -181,7 +183,7 @@ def naked(values, cur_units):
             values = eliminate(values, unit, triple[2])
 
 
-################ Hidden single/pair/triple ################
+################ Hidden pair/triple ################
 
 def hidden(values, cur_units):
     pair_count = {}
@@ -466,7 +468,6 @@ hard1  = '.....6....59.....82....8....45........3........6..3.54...325..6.......
 if __name__ == '__main__':
     test()
     
-
     # solve_all(from_file("top95.txt"), "top95", None)
     solve_all(from_file("100sudoku.txt"),"easy", None)
     # solve_all(from_file("1000sudoku.txt"),"hard", None)
