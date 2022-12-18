@@ -7,6 +7,18 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import train_test_split
 import pandas as pd
 
+# stopword
+CATEGORIES_STOPWORDS = ['/.', '/,', '[', ']', '/(', '/)', '\n', "/'", "/''", '/``', '/:']
+CATEGORIES_STOPWORDS_EXTRA = ['/IN', '/DT', '/CC']
+
+# code stopword
+# STOPLIST_TXT = pd.read_csv('tool word list (stoplist).txt',header=None)[0].values.tolist()
+# PUNCTUATION_STOPWORDS = ['.', ',', '[', ']', '(', ')', '\n', "'", "''", '``', ':', ';', '{', '}', '"']+STOPLIST_TXT
+
+# no-stopword
+PUNCTUATION_STOPWORDS = ['.', ',', '[', ']', '(', ')', '\n', "'", "''", '``', ':', ';', '{', '}', '"']
+
+
 
 text_data = open('interest.acl94.txt', 'r').read()
 text_data = text_data.split('$$')
