@@ -22,8 +22,12 @@ CATEGORIES_STOPWORDS = ['/.', '/,', '[', ']', '/(', '/)', '\n', "/'", "/''", '/`
 CATEGORIES_STOPWORDS_EXTRA = ['/IN', '/DT', '/CC']
 
 # 去停词代码
-STOPLIST_TXT = pd.read_csv('disambiguation/stoplist.txt',header=None)[0].values.tolist()
-PUNCTUATION_STOPWORDS = ['.', ',', '[', ']', '(', ')', '\n', "'", "''", '``', ':', ';', '{', '}', '"']+STOPLIST_TXT
+STOPLIST_TXT = pd.read_csv('stoplist.txt', header=None)[0].values.tolist()
+PUNCTUATION_STOPWORDS = ['======================================', '.', ',', '[', ']', '(', ')', '\n', "'", "''", '``',
+                         ':', ';', '{', '}', '"'] + STOPLIST_TXT
+NG_STOPWORDS = ['======================================', '.', ',', '(', ')', '\n', "'", "''", '``',
+                         ':', ';', '{', '}', '"'] + STOPLIST_TXT
+
 
 # 不去停词
 # PUNCTUATION_STOPWORDS = ['.', ',', '[', ']', '(', ')', '\n', "'", "''", '``', ':', ';', '{', '}', '"']
@@ -52,14 +56,14 @@ CONFIG = {
     'gc': {
         'filename': 'gc_dataset.csv',
         'n_words': 2,
-        'vectorizer': 'count',  # ['count', 'tfidf']
+        'vectorizer': 'tfidf',  # ['count', 'tfidf']
         'mlp': {
             'solver': 'adam',  # ['lbfgs', 'sgd', 'adam']
-            'hidden_layer_sizes': (40,80)
-            ,'activation':'tanh' #['relu','logistic','tanh']
+            'hidden_layer_sizes': (50, 100)
+            , 'activation': 'tanh'  # ['relu','logistic','tanh']
         },
         'dt': {
-            'depth': 30
+            'depth': 50
         }},
     'nw': {
         'filename': 'nw_dataset.csv',
@@ -67,13 +71,26 @@ CONFIG = {
         'vectorizer': 'count',  # ['count', 'tfidf']
         'mlp': {
             'solver': 'adam',  # ['lbfgs', 'sgd', 'adam']
-            'hidden_layer_sizes': (40,80),
-            'activation':'tanh' #['relu','logistic','tanh']
+            'hidden_layer_sizes': (50, 100),
+            'activation': 'tanh'  # ['relu','logistic','tanh']
         },
         'dt': {
-            'depth': 260
-        }
-    }}
+            'depth': 500
+        }},
+    'ng': {
+        'filename': 'ng_dataset.csv',
+        'n_words': 2,
+        'vectorizer': 'count',  # ['count', 'tfidf']
+        'mlp': {
+            'solver': 'adam',  # ['lbfgs', 'sgd', 'adam']
+            'hidden_layer_sizes': (50, 100),
+            'activation': 'tanh'  # ['relu','logistic','tanh']
+        },
+        'dt': {
+            'depth': 500
+        }}
+    }
+
 
 # Grammatical classification extraction
 def gc_extraction(stopwords=False, extra_stopwords=False, custom_n_words=None):
@@ -82,7 +99,7 @@ def gc_extraction(stopwords=False, extra_stopwords=False, custom_n_words=None):
     else:
         n_words = custom_n_words
     data = []
-    with open('disambiguation/corpus.txt') as file:
+    with open('corpus.txt') as file:
         lines = file.readlines()
     separator = lines[1]
     lines.remove(separator)
@@ -121,7 +138,7 @@ def gc_extraction(stopwords=False, extra_stopwords=False, custom_n_words=None):
         for i in range(len(line)):
             if line[i].find('interest_') == 0:
                 # 取interest的类型数字
-                category =line[i][9:10]
+                category = line[i][9:10]
                 line = line[i - n_words:i + n_words + 1]
                 target_word_found = True
                 break
@@ -149,6 +166,7 @@ def gc_extraction(stopwords=False, extra_stopwords=False, custom_n_words=None):
         writer.writerows(data)
     print(CONFIG['gc']['filename'] + ' generated')
 
+
 # n-words feature extract
 def nw_extraction(punctuation_stopwords=True, custom_n_words=None):
     lancaster_stemmer = LancasterStemmer()
@@ -157,7 +175,7 @@ def nw_extraction(punctuation_stopwords=True, custom_n_words=None):
     else:
         n_words = custom_n_words
     data = []
-    with open('interest-original.txt') as file:
+    with open('corpus.txt') as file:
         lines = file.readlines()
     separator = lines[1]
     lines.remove(separator)
@@ -167,6 +185,11 @@ def nw_extraction(punctuation_stopwords=True, custom_n_words=None):
             line.remove('======================================')
         except:
             pass
+        for i in range(len(line)):
+            try:
+                line[i] = line[i].split('/')[0]
+            except:
+                line[i] = 'VOID'
         for i in range(len(line)):
             line[i] = lancaster_stemmer.stem(line[i])
         if punctuation_stopwords:
@@ -200,16 +223,94 @@ def nw_extraction(punctuation_stopwords=True, custom_n_words=None):
     with open(CONFIG['nw']['filename'], 'w', newline='') as file:
         writer = csv.writer(file)
         writer.writerows(data)
-    print(CONFIG['nw']['filename'] + ' generated')    
-    
-    
-nw_extraction()
+    print(CONFIG['nw']['filename'] + ' generated')
+
+# Write a extraction function to extract the words in the nominal group enclosed in square brackets [ ] which contains the word "interest" as features, except for interest.
+# Using stemming to treat these features.
+# For example,  [ interest_6/NN rates/NNS ] -> rat.
+# Which will turn a CSV file with labels(interest_6 -> 6) in the first column, and features in the second. Just like what gc_extraction and nw_extraction do.
+def ng_extraction(punctuation_stopwords=True, custom_n_words=None):
+    lancaster_stemmer = LancasterStemmer()
+    if custom_n_words is None:
+        n_words = CONFIG['ng']['n_words']
+    else:
+        n_words = custom_n_words
+    data = []
+    with open('corpus.txt') as file:
+        lines = file.readlines()
+    separator = lines[1]
+    lines.remove(separator)
+    for line in lines:
+        line = word_tokenize(line)
+        try:
+            line.remove('======================================')
+        except:
+            pass
+        for i in range(len(line)):
+            try:
+                line[i] = line[i].split('/')[0]
+            except:
+                line[i] = 'VOID'
+        for i in range(len(line)):
+            line[i] = lancaster_stemmer.stem(line[i])
+        if punctuation_stopwords:
+            line = list(filter(lambda x: x not in NG_STOPWORDS, line))
+        nulls = []
+        for _ in range(n_words):
+            nulls.append('VOID')
+        line = nulls + line + nulls
+        target_word_found = False
+        temp = []
+        inside_brackets = False
+        for word in line:
+            if word == '[':
+                inside_brackets = True
+            elif word == ']':
+                inside_brackets = False
+                if not target_word_found:
+                    temp = []
+            elif inside_brackets:
+                if word.find('interest_') == 0:
+                    category = 'C' + word[9:10]
+                    target_word_found = True
+                elif word.find('interests_') == 0:
+                    category = 'C' + word[10:11]
+                    target_word_found = True
+                elif not word.isalpha():
+                    word = 'NUM'
+                temp.append(word)
+        if target_word_found:
+            for i in range(len(temp)):
+                if temp[i].find('interest_') == 0:
+                    temp[i] = temp[i][10:]
+                elif temp[i].find('interests_') == 0:
+                    temp[i] = temp[i][11:]
+            temp = ' '.join(temp)
+            temp = temp.replace('VOID', '')
+            line = [category, temp]
+            data.append(line)
+    with open(CONFIG['ng']['filename'], 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerows(data)
+    print(CONFIG['ng']['filename'] + ' generated')
+
+
+
+
+
+
+
 gc_extraction()
+nw_extraction()
+ng_extraction()
 # whole_sentence_extraction()
 
-datasets = ['gc']
-# datasets = ['gc','nw']
-models =  ['naive_bayes', 'decision_tree','random_forest', 'svm','mlp']
+# datasets = ['gc']
+datasets = ['gc', 'nw']
+# datasets = ['nw']
+# datasets = ['gc', 'nw', 'ng']
+# datasets = ['ng']
+models = ['naive_bayes', 'decision_tree', 'random_forest', 'svm', 'mlp']
 # models =  ['mlp']
 
 for current_dataset in datasets:
@@ -242,14 +343,14 @@ for current_dataset in datasets:
         elif current_model == 'random_forest':
             clf = RandomForestClassifier(max_depth=12, random_state=0)
             clf = clf.fit(X_train, y_train)
-            y_test = clf.predict(X_test)  
+            y_test = clf.predict(X_test)
             acc = accuracy_score(y_test, y_pred)
             f1 = f1_score(y_test, y_pred, average='macro')
             print('random_forest Accuracy: ' + str('{:.4f}'.format(acc)))
 
         elif current_model == 'svm':
-            kernels=['sigmoid','rbf']
-            clf=svm.SVC(kernel=kernels[1]).fit(X_train, y_train)
+            kernels = ['sigmoid', 'rbf']
+            clf = svm.SVC(kernel=kernels[1]).fit(X_train, y_train)
             y_test = clf.predict(X_test)
             acc = accuracy_score(y_test, y_pred)
             f1 = f1_score(y_test, y_pred, average='macro')
@@ -259,7 +360,7 @@ for current_dataset in datasets:
             mlp = MLPClassifier(hidden_layer_sizes=CONFIG[current_dataset]['mlp']['hidden_layer_sizes']
                                 , max_iter=3000
                                 , solver=CONFIG[current_dataset]['mlp']['solver']
-            ,activation=CONFIG[current_dataset]['mlp']['activation'])
+                                , activation=CONFIG[current_dataset]['mlp']['activation'])
             mlp.fit(X_train, y_train)
             y_pred = mlp.predict(X_test)
             acc = accuracy_score(y_test, y_pred)
