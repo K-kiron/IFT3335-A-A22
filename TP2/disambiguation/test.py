@@ -149,8 +149,64 @@ def gc_extraction(stopwords=False, extra_stopwords=False, custom_n_words=None):
         writer.writerows(data)
     print(CONFIG['gc']['filename'] + ' generated')
 
+# n-words feature extract
+def nw_extraction(punctuation_stopwords=True, custom_n_words=None):
+    lancaster_stemmer = LancasterStemmer()
+    if custom_n_words is None:
+        n_words = CONFIG['nw']['n_words']
+    else:
+        n_words = custom_n_words
+    data = []
+    with open('interest-original.txt') as file:
+        lines = file.readlines()
+    separator = lines[1]
+    lines.remove(separator)
+    for line in lines:
+        line = word_tokenize(line)
+        try:
+            line.remove('======================================')
+        except:
+            pass
+        for i in range(len(line)):
+            line[i] = lancaster_stemmer.stem(line[i])
+        if punctuation_stopwords:
+            line = list(filter(lambda x: x not in PUNCTUATION_STOPWORDS, line))
+        nulls = []
+        for _ in range(n_words):
+            nulls.append('VOID')
+        line = nulls + line + nulls
+        target_word_found = False
+        for i in range(len(line)):
+            if line[i].find('interest_') == 0:
+                category = 'C' + line[i][9:10]
+                line = line[i - n_words:i + n_words + 1]
+                # 删除n_words+1的元素，即interest
+                line.pop(n_words)
+                target_word_found = True
+                break
+            elif line[i].find('interests_') == 0:
+                category = 'C' + line[i][10:11]
+                line = line[i - n_words:i + n_words + 1]
+                line.pop(n_words)
+                target_word_found = True
+                break
+            elif not line[i].isalpha():
+                line[i] = 'NUM'
+        if target_word_found:
+            line = ' '.join(line)
+            line = line.replace('VOID', '')
+            line = [category, line]
+            data.append(line)
+    with open(CONFIG['nw']['filename'], 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerows(data)
+    print(CONFIG['nw']['filename'] + ' generated')    
+    
+    
+nw_extraction()
 gc_extraction()
 # whole_sentence_extraction()
+
 datasets = ['gc']
 # datasets = ['gc','nw']
 models =  ['naive_bayes', 'decision_tree','random_forest', 'svm','mlp']
