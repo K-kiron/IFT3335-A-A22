@@ -225,16 +225,9 @@ def nw_extraction(punctuation_stopwords=True, custom_n_words=None):
         writer.writerows(data)
     print(CONFIG['nw']['filename'] + ' generated')
 
-# Write a extraction function to extract the words in the nominal group enclosed in square brackets [ ] which contains the word "interest" as features, except for interest.
-# Using stemming to treat these features.
-# For example,  [ interest_6/NN rates/NNS ] -> rat.
-# Which will turn a CSV file with labels(interest_6 -> 6) in the first column, and features in the second. Just like what gc_extraction and nw_extraction do.
-def ng_extraction(punctuation_stopwords=True, custom_n_words=None):
+# nominal group extract
+def ng_extraction(punctuation_stopwords=True):
     lancaster_stemmer = LancasterStemmer()
-    if custom_n_words is None:
-        n_words = CONFIG['ng']['n_words']
-    else:
-        n_words = custom_n_words
     data = []
     with open('corpus.txt') as file:
         lines = file.readlines()
@@ -255,10 +248,6 @@ def ng_extraction(punctuation_stopwords=True, custom_n_words=None):
             line[i] = lancaster_stemmer.stem(line[i])
         if punctuation_stopwords:
             line = list(filter(lambda x: x not in NG_STOPWORDS, line))
-        nulls = []
-        for _ in range(n_words):
-            nulls.append('VOID')
-        line = nulls + line + nulls
         target_word_found = False
         temp = []
         inside_brackets = False
@@ -287,8 +276,10 @@ def ng_extraction(punctuation_stopwords=True, custom_n_words=None):
                     temp[i] = temp[i][11:]
             temp = ' '.join(temp)
             temp = temp.replace('VOID', '')
-            line = [category, temp]
-            data.append(line)
+            if temp == '':
+                temp = 'VOID'
+            temp = [category, temp]
+            data.append(temp)
     with open(CONFIG['ng']['filename'], 'w', newline='') as file:
         writer = csv.writer(file)
         writer.writerows(data)
@@ -306,10 +297,10 @@ ng_extraction()
 # whole_sentence_extraction()
 
 # datasets = ['gc']
-datasets = ['gc', 'nw']
+# datasets = ['gc', 'nw']
 # datasets = ['nw']
 # datasets = ['gc', 'nw', 'ng']
-# datasets = ['ng']
+datasets = ['ng']
 models = ['naive_bayes', 'decision_tree', 'random_forest', 'svm', 'mlp']
 # models =  ['mlp']
 
