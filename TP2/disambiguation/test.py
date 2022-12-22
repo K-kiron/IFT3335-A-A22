@@ -2,7 +2,9 @@ import sys
 import numpy as np
 import pandas as pd
 import csv
-from sklearn.model_selection import train_test_split
+
+from matplotlib import pyplot as plt
+from sklearn.model_selection import train_test_split, learning_curve
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import confusion_matrix, accuracy_score, f1_score
@@ -26,8 +28,7 @@ STOPLIST_TXT = pd.read_csv('stoplist.txt', header=None)[0].values.tolist()
 PUNCTUATION_STOPWORDS = ['======================================', '.', ',', '[', ']', '(', ')', '\n', "'", "''", '``',
                          ':', ';', '{', '}', '"'] + STOPLIST_TXT
 NG_STOPWORDS = ['======================================', '.', ',', '(', ')', '\n', "'", "''", '``',
-                         ':', ';', '{', '}', '"'] + STOPLIST_TXT
-
+                ':', ';', '{', '}', '"'] + STOPLIST_TXT
 
 # 不去停词
 # PUNCTUATION_STOPWORDS = ['.', ',', '[', ']', '(', ')', '\n', "'", "''", '``', ':', ';', '{', '}', '"']
@@ -89,7 +90,7 @@ CONFIG = {
         'dt': {
             'depth': 500
         }}
-    }
+}
 
 
 # Grammatical classification extraction
@@ -135,6 +136,7 @@ def gc_extraction(stopwords=False, extra_stopwords=False, custom_n_words=None):
             nulls.append('/VOID')
         line = nulls + line + nulls
         target_word_found = False
+        category = ''
         for i in range(len(line)):
             if line[i].find('interest_') == 0:
                 # 取interest的类型数字
@@ -199,6 +201,7 @@ def nw_extraction(punctuation_stopwords=True, custom_n_words=None):
             nulls.append('VOID')
         line = nulls + line + nulls
         target_word_found = False
+        category = ''
         for i in range(len(line)):
             if line[i].find('interest_') == 0:
                 category = 'C' + line[i][9:10]
@@ -224,6 +227,7 @@ def nw_extraction(punctuation_stopwords=True, custom_n_words=None):
         writer = csv.writer(file)
         writer.writerows(data)
     print(CONFIG['nw']['filename'] + ' generated')
+
 
 # nominal group extract
 def ng_extraction(punctuation_stopwords=True):
@@ -251,6 +255,7 @@ def ng_extraction(punctuation_stopwords=True):
         target_word_found = False
         temp = []
         inside_brackets = False
+        category = ''
         for word in line:
             if word == '[':
                 inside_brackets = True
@@ -286,11 +291,6 @@ def ng_extraction(punctuation_stopwords=True):
     print(CONFIG['ng']['filename'] + ' generated')
 
 
-
-
-
-
-
 gc_extraction()
 nw_extraction()
 ng_extraction()
@@ -299,10 +299,45 @@ ng_extraction()
 # datasets = ['gc']
 # datasets = ['gc', 'nw']
 # datasets = ['nw']
-# datasets = ['gc', 'nw', 'ng']
-datasets = ['ng']
+datasets = ['gc', 'nw', 'ng']
+# datasets = ['ng']
 models = ['naive_bayes', 'decision_tree', 'random_forest', 'svm', 'mlp']
+
+
 # models =  ['mlp']
+
+# Draw the learing curve for each algorithm, show the comparison in one pic, save as png into the folder 'img'
+def draw_learning_curve(dataset, classifier):
+    # load data
+    df = pd.read_csv(CONFIG[dataset]['filename'], header=None)
+    X = df.iloc[:, 1]
+    y = df.iloc[:, 0]
+    # split data into training and test sets
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+    # vectorize the text
+    vectorizer = TfidfVectorizer()
+    X_train = vectorizer.fit_transform(X_train)
+    X_test = vectorizer.transform(X_test)
+    # draw the learning curve
+    train_sizes, train_scores, test_scores = learning_curve(classifier, X_train, y_train, cv=5, n_jobs=-1,
+                                                            train_sizes=np.linspace(.1, 1.0, 5))
+    train_scores_mean = np.mean(train_scores, axis=1)
+    test_scores_mean = np.mean(test_scores, axis=1)
+    plt.plot(train_sizes, train_scores_mean, 'o-', color="r", label="Training score")
+    plt.plot(train_sizes, test_scores_mean, 'o-', color="g", label="Cross-validation score")
+    plt.legend(loc="best")
+    plt.title('Learning Curve for ' + CONFIG[dataset]['filename'] + ' dataset')
+    plt.xlabel('Training examples')
+    plt.ylabel('Score')
+    plt.savefig('img/' + CONFIG[dataset]['filename'] + '_' + classifier.__class__.__name__ + '.png')
+    plt.clf()
+
+
+
+
+
+
+
 
 for current_dataset in datasets:
     print(CONFIG[current_dataset])
@@ -324,6 +359,7 @@ for current_dataset in datasets:
             acc = accuracy_score(y_test, y_pred)
             f1 = f1_score(y_test, y_pred, average='macro')
             print('naive_bayes Accuracy: ' + str('{:.4f}'.format(acc)))
+            draw_learning_curve(current_dataset, nb)
         elif current_model == 'decision_tree':
             dt = DecisionTreeClassifier(max_depth=CONFIG[current_dataset]['dt']['depth'])
             dt.fit(X_train, y_train)
@@ -331,13 +367,15 @@ for current_dataset in datasets:
             acc = accuracy_score(y_test, y_pred)
             f1 = f1_score(y_test, y_pred, average='macro')
             print('decision_tree Accuracy: ' + str('{:.4f}'.format(acc)))
+            draw_learning_curve(current_dataset, dt)
         elif current_model == 'random_forest':
-            clf = RandomForestClassifier(max_depth=12, random_state=0)
+            clf = RandomForestClassifier(max_depth=12, random_state=42)
             clf = clf.fit(X_train, y_train)
             y_test = clf.predict(X_test)
             acc = accuracy_score(y_test, y_pred)
             f1 = f1_score(y_test, y_pred, average='macro')
             print('random_forest Accuracy: ' + str('{:.4f}'.format(acc)))
+            draw_learning_curve(current_dataset, clf)
 
         elif current_model == 'svm':
             kernels = ['sigmoid', 'rbf']
@@ -346,6 +384,7 @@ for current_dataset in datasets:
             acc = accuracy_score(y_test, y_pred)
             f1 = f1_score(y_test, y_pred, average='macro')
             print('svm Accuracy: ' + str('{:.4f}'.format(acc)))
+            draw_learning_curve(current_dataset, clf)
 
         elif current_model == 'mlp':
             mlp = MLPClassifier(hidden_layer_sizes=CONFIG[current_dataset]['mlp']['hidden_layer_sizes']
@@ -357,3 +396,4 @@ for current_dataset in datasets:
             acc = accuracy_score(y_test, y_pred)
             f1 = f1_score(y_test, y_pred, average='macro')
             print('mlp Accuracy: ' + str('{:.4f}'.format(acc)))
+            draw_learning_curve(current_dataset, mlp)
