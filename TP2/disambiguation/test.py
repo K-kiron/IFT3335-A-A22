@@ -306,7 +306,7 @@ models = ['naive_bayes', 'decision_tree', 'random_forest', 'svm', 'mlp']
 
 # models =  ['mlp']
 
-# Draw the learing curve for each algorithm, show the comparison in one pic, save as png into the folder 'img'
+# Draw the learing curve for each algorithm
 def draw_learning_curve(dataset, classifier):
     # load data
     df = pd.read_csv(CONFIG[dataset]['filename'], header=None)
@@ -359,7 +359,9 @@ for current_dataset in datasets:
             acc = accuracy_score(y_test, y_pred)
             f1 = f1_score(y_test, y_pred, average='macro')
             print('naive_bayes Accuracy: ' + str('{:.4f}'.format(acc)))
+
             draw_learning_curve(current_dataset, nb)
+
         elif current_model == 'decision_tree':
             dt = DecisionTreeClassifier(max_depth=CONFIG[current_dataset]['dt']['depth'])
             dt.fit(X_train, y_train)
@@ -367,23 +369,27 @@ for current_dataset in datasets:
             acc = accuracy_score(y_test, y_pred)
             f1 = f1_score(y_test, y_pred, average='macro')
             print('decision_tree Accuracy: ' + str('{:.4f}'.format(acc)))
+
             draw_learning_curve(current_dataset, dt)
+
         elif current_model == 'random_forest':
             clf = RandomForestClassifier(max_depth=12, random_state=42)
             clf = clf.fit(X_train, y_train)
-            y_test = clf.predict(X_test)
+            y_pred = clf.predict(X_test)
             acc = accuracy_score(y_test, y_pred)
             f1 = f1_score(y_test, y_pred, average='macro')
             print('random_forest Accuracy: ' + str('{:.4f}'.format(acc)))
+
             draw_learning_curve(current_dataset, clf)
 
         elif current_model == 'svm':
             kernels = ['sigmoid', 'rbf']
             clf = svm.SVC(kernel=kernels[1]).fit(X_train, y_train)
-            y_test = clf.predict(X_test)
+            y_pred = clf.predict(X_test)
             acc = accuracy_score(y_test, y_pred)
             f1 = f1_score(y_test, y_pred, average='macro')
             print('svm Accuracy: ' + str('{:.4f}'.format(acc)))
+
             draw_learning_curve(current_dataset, clf)
 
         elif current_model == 'mlp':
@@ -396,4 +402,5 @@ for current_dataset in datasets:
             acc = accuracy_score(y_test, y_pred)
             f1 = f1_score(y_test, y_pred, average='macro')
             print('mlp Accuracy: ' + str('{:.4f}'.format(acc)))
+
             draw_learning_curve(current_dataset, mlp)
