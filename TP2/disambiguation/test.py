@@ -19,39 +19,23 @@ from joblib import dump, load
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import svm
 
-# 停词
+# stopword list
+# gc
 CATEGORIES_STOPWORDS = ['/.', '/,', '[', ']', '/(', '/)', '\n', "/'", "/''", '/``', '/:']
 CATEGORIES_STOPWORDS_EXTRA = ['/IN', '/DT', '/CC']
 
-# 去停词代码
+# nw
 STOPLIST_TXT = pd.read_csv('stoplist.txt', header=None)[0].values.tolist()
 PUNCTUATION_STOPWORDS = ['======================================', '.', ',', '[', ']', '(', ')', '\n', "'", "''", '``',
                          ':', ';', '{', '}', '"'] + STOPLIST_TXT
 NG_STOPWORDS = ['======================================', '.', ',', '(', ')', '\n', "'", "''", '``',
                 ':', ';', '{', '}', '"'] + STOPLIST_TXT
 
-# 不去停词
-# PUNCTUATION_STOPWORDS = ['.', ',', '[', ']', '(', ')', '\n', "'", "''", '``', ':', ';', '{', '}', '"']
-
 
 # Config
 DATASETS = ['gc', 'nw']
 MODELS = ['nb', 'dt', 'mlp']
-# CONFIG = {
-#     'stopwords': 'all',  # ['all', 'punctuation', 'none']
-#     'gc': {
-#         'filename': 'gc_dataset.csv',
-#         'n_words': 2,
-#         'vectorizer': 'count',  # ['count', 'tfidf']
-#         'mlp': {
-#             'solver': 'sgd',  # ['lbfgs', 'sgd', 'adam']
-#             'hidden_layer_sizes': (40)
-#         },
-#         'dt': {
-#             'depth': 30
-#         }
-#     }
-# }
+
 CONFIG = {
     'stopwords': 'all',  # ['all', 'punctuation', 'none']
     'gc': {
@@ -139,7 +123,7 @@ def gc_extraction(stopwords=False, extra_stopwords=False, custom_n_words=None):
         category = ''
         for i in range(len(line)):
             if line[i].find('interest_') == 0:
-                # 取interest的类型数字
+                # Take the type number of the interest
                 category = line[i][9:10]
                 line = line[i - n_words:i + n_words + 1]
                 target_word_found = True
@@ -206,7 +190,7 @@ def nw_extraction(punctuation_stopwords=True, custom_n_words=None):
             if line[i].find('interest_') == 0:
                 category = 'C' + line[i][9:10]
                 line = line[i - n_words:i + n_words + 1]
-                # 删除n_words+1的元素，即interest
+                # Delete the elements of n_words+1, interest_XX
                 line.pop(n_words)
                 target_word_found = True
                 break
