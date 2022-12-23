@@ -14,7 +14,7 @@ from nltk.stem import LancasterStemmer
 from nltk.tokenize import word_tokenize
 from openpyxl import Workbook
 from nltk.corpus import stopwords
-from sklearn.model_selection import cross_validate
+from sklearn.model_selection import cross_validate, RandomizedSearchCV
 from joblib import dump, load
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import svm
@@ -45,10 +45,10 @@ CONFIG = {
         'mlp': {
             'solver': 'adam',  # ['lbfgs', 'sgd', 'adam']
             'hidden_layer_sizes': (50, 100)
-            , 'activation': 'tanh'  # ['relu','logistic','tanh']
+            , 'activation': 'relu'  # ['relu','logistic','tanh']
         },
         'dt': {
-            'depth': 50
+            'depth': 500
         }},
     'nw': {
         'filename': 'nw_dataset.csv',
@@ -69,7 +69,7 @@ CONFIG = {
         'mlp': {
             'solver': 'adam',  # ['lbfgs', 'sgd', 'adam']
             'hidden_layer_sizes': (50, 100),
-            'activation': 'tanh'  # ['relu','logistic','tanh']
+            'activation': 'relu'  # ['relu','logistic','tanh']
         },
         'dt': {
             'depth': 500
@@ -293,15 +293,14 @@ models = ['naive_bayes', 'decision_tree', 'random_forest', 'svm', 'mlp']
 # Draw the learing curve for each algorithm
 def draw_learning_curve(dataset, classifier):
     # load data
-    df = pd.read_csv(CONFIG[dataset]['filename'], header=None)
-    X = df.iloc[:, 1]
-    y = df.iloc[:, 0]
-    # split data into training and test sets
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
-    # vectorize the text
-    vectorizer = TfidfVectorizer()
-    X_train = vectorizer.fit_transform(X_train)
-    X_test = vectorizer.transform(X_test)
+    y = data[0].values
+    X = data[1]
+    if CONFIG[current_dataset]['vectorizer'] == 'count':
+        vectorizer = CountVectorizer(ngram_range=(1, 2))
+    else:
+        vectorizer = TfidfVectorizer(ngram_range=(1, 2))
+    X = vectorizer.fit_transform(X)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
     # draw the learning curve
     train_sizes, train_scores, test_scores = learning_curve(classifier, X_train, y_train, cv=5, n_jobs=-1,
                                                             train_sizes=np.linspace(.1, 1.0, 5))
@@ -315,6 +314,9 @@ def draw_learning_curve(dataset, classifier):
     plt.ylabel('Score')
     plt.savefig('img/' + CONFIG[dataset]['filename'] + '_' + classifier.__class__.__name__ + '.png')
     plt.clf()
+
+
+# Draw comparison of the accuracy curve of each algorithm
 
 
 
@@ -335,7 +337,13 @@ for current_dataset in datasets:
         vectorizer = TfidfVectorizer(ngram_range=(1, 2))
     X = vectorizer.fit_transform(X)
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
+
+    names = []
+    scores = []
+
     for current_model in models:
+        classifier = ''
+        label = ''
         if current_model == 'naive_bayes':
             nb = MultinomialNB()
             nb.fit(X_train, y_train)
@@ -344,7 +352,10 @@ for current_dataset in datasets:
             f1 = f1_score(y_test, y_pred, average='macro')
             print('naive_bayes Accuracy: ' + str('{:.4f}'.format(acc)))
 
-            draw_learning_curve(current_dataset, nb)
+            classifier = nb
+            label = 'Naive Bayes'
+
+            # draw_learning_curve(current_dataset, nb)
 
         elif current_model == 'decision_tree':
             dt = DecisionTreeClassifier(max_depth=CONFIG[current_dataset]['dt']['depth'])
@@ -353,28 +364,44 @@ for current_dataset in datasets:
             acc = accuracy_score(y_test, y_pred)
             f1 = f1_score(y_test, y_pred, average='macro')
             print('decision_tree Accuracy: ' + str('{:.4f}'.format(acc)))
+            # random_grid = {'max_depth': range(1, 1000)}
+            # dt_random = RandomizedSearchCV(estimator=dt, param_distributions=random_grid, n_iter=100, cv=3, verbose=2,
+            #                                  random_state=42, n_jobs=-1)
+            # dt_random.fit(X_train, y_train)
+            # print(dt_random.best_params_)
+            # print(dt_random.best_score_)
 
-            draw_learning_curve(current_dataset, dt)
+            classifier = dt
+            label = 'Decision Tree'
+
+            # draw_learning_curve(current_dataset, dt)
 
         elif current_model == 'random_forest':
             clf = RandomForestClassifier(max_depth=12, random_state=42)
-            clf = clf.fit(X_train, y_train)
+            clf.fit(X_train, y_train)
             y_pred = clf.predict(X_test)
             acc = accuracy_score(y_test, y_pred)
             f1 = f1_score(y_test, y_pred, average='macro')
             print('random_forest Accuracy: ' + str('{:.4f}'.format(acc)))
 
-            draw_learning_curve(current_dataset, clf)
+            classifier = clf
+            label = 'Random Forest'
+
+            # draw_learning_curve(current_dataset, clf)
 
         elif current_model == 'svm':
             kernels = ['sigmoid', 'rbf']
-            clf = svm.SVC(kernel=kernels[1]).fit(X_train, y_train)
+            clf = svm.SVC(kernel=kernels[1])
+            clf.fit(X_train, y_train)
             y_pred = clf.predict(X_test)
             acc = accuracy_score(y_test, y_pred)
             f1 = f1_score(y_test, y_pred, average='macro')
             print('svm Accuracy: ' + str('{:.4f}'.format(acc)))
 
-            draw_learning_curve(current_dataset, clf)
+            classifier = clf
+            label = 'SVM'
+
+            # draw_learning_curve(current_dataset, clf)
 
         elif current_model == 'mlp':
             mlp = MLPClassifier(hidden_layer_sizes=CONFIG[current_dataset]['mlp']['hidden_layer_sizes']
@@ -386,5 +413,30 @@ for current_dataset in datasets:
             acc = accuracy_score(y_test, y_pred)
             f1 = f1_score(y_test, y_pred, average='macro')
             print('mlp Accuracy: ' + str('{:.4f}'.format(acc)))
+            # random_grid = {'activation': ['tanh', 'relu', 'logistic'],
+            #                 'solver': ['lbfgs', 'sgd', 'adam']}
+            # mlp_random = RandomizedSearchCV(estimator=mlp, param_distributions=random_grid, n_iter=100,
+            #                                   cv=3, verbose=2, random_state=42, n_jobs=-1)
+            # mlp_random.fit(X_train, y_train)
+            # print(mlp_random.best_params_)
+            # print(mlp_random.best_score_)
 
-            draw_learning_curve(current_dataset, mlp)
+            classifier = mlp
+            label = 'MLP'
+
+            # draw_learning_curve(current_dataset, mlp)
+
+        train_sizes, train_scores, test_scores = learning_curve(classifier, X_train, y_train, cv=5, n_jobs=-1,
+                                                            train_sizes=np.linspace(.1, 1.0, 5))
+        # train_scores_mean = np.mean(train_scores, axis=1)
+        test_scores_mean = np.mean(test_scores, axis=1)
+        # plt.plot(train_sizes, train_scores_mean, 'o-', label="Training score")
+        plt.plot(train_sizes, test_scores_mean, 'o-', label=label)
+
+    plt.legend(loc="best")
+    plt.legend()
+    plt.title('Comparison test score for ' + CONFIG[current_dataset]['filename'] + ' dataset')
+    plt.xlabel('Training examples')
+    plt.ylabel('Score')
+    plt.savefig('img/' + CONFIG[current_dataset]['filename'] + '_comparison.png')
+    plt.clf()
