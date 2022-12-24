@@ -1,0 +1,2369 @@
+label,features
+6,IN  NNS 
+6, VBG NNS 
+6, JJ NNS 
+5,AB NN  IN
+5,IN  IN
+6,CC   .
+6, DT NN 
+4,"POS JJ  ,"
+6,CC   VBZ
+5, PP$  TO
+1,DT JJ  IN
+6,IN  NNS 
+6,IN  NNS 
+6,IN  NNS 
+6,VBN   TO
+6,IN  NNS 
+1, JJ  IN
+6,JJR NP NNS 
+1, JJ  IN
+6, JJ NNS 
+6,JJ NNS NN 
+6, JJR NNS 
+3,JJ NN (
+1,JJ JJ  IN
+5,VBG   IN
+1,DT JJ  IN
+5,AB NN  CC
+6, DT NNS PP
+6,JJ JJ NNS 
+6,AB JJ NN JJ
+6,IN  NN NN
+6,IN  NN NN
+6, DT NN 
+6, JJ NNS 
+6,IN  NNS 
+1, VBG  IN
+6,IN  NNS 
+6, DT  IN
+4,DT JJ  IN
+4,DT JJ  IN
+6,NN VBG NNS 
+1, NN  VBD
+1,JJS NN  VBD
+6,CC  NN 
+6,NN POS NN 
+1, PP$  IN
+5,AB NN  IN
+3," JJ ,"
+6,VBD  NNS 
+6,IN  NNS 
+5,"NP NN ,"
+6,IN  NNS 
+6, JJ NNS 
+6,JJ JJ NNS 
+4,POS JJS ``
+1, PP$  IN
+6, JJ NNS 
+3," JJ ,"
+1, NN  CC
+6, JJ NNS 
+6, JJ NNS 
+6, NN NNS 
+5,VBZ  IN
+6,IN  NN 
+6, JJR NNS 
+6,VB  NNS 
+6,DT JJ NN 
+1," JJ  ,"
+1,DT JJ  IN
+6, JJR NNS 
+5,"JJ NN ,"
+6,VBD   TO
+5,CC   IN
+5, JJ  IN
+5, NN IN
+6, PP$ NN 
+6, DT  
+6,NN JJ NN 
+6,NN JJ NN 
+6,   IN
+6,IN   NNS
+1, NN  IN
+1,``   VBZ
+6,RP  NNS 
+6,VBP   RB
+4,DT JJ IN
+5,IN  IN
+1, VBG  IN
+1, JJ  IN
+6,VBP   RB
+6,NP VBZ NNS 
+6,IN  NN NNS
+6, JJ NNS 
+6,JJR NP NNS 
+6,WRB  NNS 
+6, NP NNS 
+6,JJ JJ NNS 
+6, NP NNS 
+6,NP POS NN NNS
+6,CC  NN NNS
+6, DT NN NNS
+6, DT NN NN
+6,VBG  NN NNS
+6, DT NN NNS
+6,NP POS NN NNS
+6,NP POS NN NNS
+1,VBG   IN
+1,JJ JJ  IN
+6,NP VBZ NNS 
+5," NN ,"
+5," NN ,"
+6, DT NN NNS
+6,IN  NNS 
+3,IN  IN
+5,NN JJ  IN
+6, DT NN 
+5,AB NN  IN
+5, NN  CC
+5,AB AB  IN
+1,''   IN
+5,VBZ  IN
+5,VBZ  IN
+3, JJ VBP
+6,VB  NNS 
+6,IN  JJ NNS
+6,VBD  NNS 
+6,IN  NNS 
+6, JJR NNS 
+1, PP$  IN
+6,JJR JJ NNS 
+1,DT VBG  IN
+6, JJR NNS 
+1, DT  IN
+5, PP$  .
+5,NP NN .
+1,"NN   ,"
+6,IN  NNS 
+6,WRB  NNS 
+6, JJ NN NNS
+1, NN  .
+6,NN JJ NN 
+6, JJ NNS 
+6,  NN AB
+6, DT NN 
+6,POS JJ NNS 
+1, PP$  IN
+1,NN JJR  IN
+6,VBZ  NNS 
+6,VBD  NNS JJ
+3," JJ ,"
+1,RB JJ  IN
+1, NN  IN
+4,DT JJ  TO
+1,"IN   ,"
+4,"PP$ JJ ,"
+6, DT  VBZ
+2,IN   TO
+1,CC   RB
+1,CC   VBD
+6,JJ JJ NNS 
+6,VBN  NNS 
+6,NN JJ  CC
+6, JJR  .
+6, PP$ NN 
+6, DT NN 
+6,IN  NNS 
+6, DT NN 
+4,PP$ JJ IN
+5," DT  ,"
+5, NN IN
+6,WRB  NNS 
+5,VBZ  IN
+6,JJ JJ NNS 
+6, JJR NNS 
+5,AB NN  TO
+5,AB NN  IN
+6, PP$ NNS 
+4, DT  IN
+3,"JJ NN ,"
+1, DT  :
+1,IN   IN
+6, JJ NN 
+6, DT NN 
+6,CC   VBP
+6, DT  IN
+1,VBN   .
+6,DT JJ  NNS
+6, JJ NNS 
+6,CC  NNS 
+3, PP$ IN
+6,"IN   ,"
+6,"IN   ,"
+5,PP$ NN .
+6,IN   
+6, JJ NNS 
+6,VBP  NNS 
+6,:  NNS 
+6,VBD  NNS 
+6,DT NN NNS 
+6, JJ NNS 
+6, JJ NNS 
+6,",  NNS "
+5,JJ NN IN
+1, JJ  IN
+6,JJ NN  VBN
+6,VBN   IN
+6,CC   IN
+5,NN NN  IN
+6,VB  NNS 
+5,NN VBG  .
+5,AB NN  IN
+4,DT JJ  MD
+1,JJ NN  .
+6, JJ NNS 
+6,VBP  NNS 
+6, DT NNS 
+6, JJR  IN
+6,JJ NNS NN 
+4,DT JJ  .
+6,JJ JJ NNS 
+2, JJ  IN
+1,RB JJ  IN
+6,IN  NNS 
+6,AB NN NN 
+6,WRB  NNS 
+4,DT JJS  IN
+6,CC  NN 
+6, NN  .
+5,DT VBG  IN
+1,JJ NN  IN
+6,DT JJ NN 
+6,IN  NNS 
+6,WRB  NNS 
+6,IN  NNS 
+1, JJ  .
+1,VBG   .
+6, JJ  VBZ
+6, JJ NNS 
+6,IN  NNS 
+6,IN  NNS 
+6,IN  NNS 
+6, DT NN 
+6,AB NN  IN
+6,VBP NN NNS 
+4,DT JJ  :
+4, PP$ IN
+6,JJR NP NNS 
+6, NP NNS 
+6,JJ JJ NNS 
+1,JJ NN  IN
+1,NNS POS  IN
+5,VBZ  IN
+6,JJ   TO
+6,WRB  NNS 
+6,WRB  NNS 
+5, NN RP
+5,VBZ  VBG
+6,   IN
+6,",   VBN"
+5,VB   IN
+5,DT NN  IN
+5,DT NN .
+4,DT JJ  .
+6,IN  NN NNS
+1,IN  NP NP
+4, PP$  VBZ
+3,JJ JJ .
+1,VBG   IN
+6, JJ NNS 
+6, JJ NNS 
+6, DT  IN
+6, NN NNS 
+6, VBG NNS 
+6, DT NNS PP
+5, WP$ VBP
+6,IN  NN 
+6,DT JJ NNS 
+1, DT  IN
+6,VB  NNS 
+6, JJ NNS 
+6,DT JJ NN 
+6, DT NN 
+5, PP$  IN
+6,JJ JJ NNS 
+5,IN  IN
+5, NP .
+5,IN  IN
+1,VB   IN
+6,CC   ``
+6, JJR NNS 
+6, PP$ NN 
+6, JJ  
+6, DT  NNS
+6, JJ  )
+6,NNS POS  VBZ
+6, DT NN 
+6,VB   IN
+6, DT NN 
+5,VBZ  IN
+1,JJ NN  IN
+1,DT NN  IN
+1, DT  VBZ
+5, JJ  CC
+5, JJ  VBZ
+6, JJ  IN
+6,IN   IN
+6, JJ  CC
+5,DT NN  IN
+6, NP NNS 
+6,PDT DT  
+6,VBG   IN
+6,IN   MD
+6, DT  
+6, DT NN 
+5, NN .
+1, JJ  IN
+6, DT NN NN
+6, DT  IN
+4, JJ  .
+4, PP$  VBZ
+1,DT JJ  IN
+1, JJ  IN
+6, JJR NNS 
+6,VBN  NNS 
+5, NP VBP
+4, NN VBD
+4, DT IN
+4,DT JJ  IN
+1, JJ  IN
+4, DT IN
+5,DT NN  IN
+5,DT NN  IN
+6,NN VBG  TO
+6,CC   IN
+6,IN   IN
+6, JJ  JJ
+6,NNS POS  VBN
+1, JJ  IN
+1,IN   IN
+6,VB  NNS 
+6,VB  NNS 
+6,",   CC"
+5, JJ  IN
+5, JJ  IN
+6, JJ NNS 
+6,VB   IN
+6,VB   IN
+6,JJR JJ NNS 
+6, JJR NNS 
+6, JJ NNS 
+6,CC   )
+6, PP$ NN 
+1," JJ  ,"
+6,JJ JJ NNS 
+1, DT  IN
+6,CC  NN 
+6,VB   CC
+6,JJ NN NN 
+6, DT NN 
+4, DT IN
+6,VB   RB
+6, JJ NNS JJ
+6,NN JJ NNS 
+6,NN JJ NNS 
+5,AB NN  IN
+5,IN  IN
+1, JJ  IN
+5," NN ,"
+4,DT JJS IN
+6,IN  NN 
+5, NN .
+5, PP$  IN
+5,AB NN  IN
+6, JJ NNS 
+1,IN   ''
+6,VBG   IN
+6,IN   IN
+6,IN   VBN
+1, DT  IN
+6,DT JJ NN 
+5,VBZ  IN
+5,"NN VBG  ,"
+5,"AB NN  ,"
+5, NN VBD
+6,IN  NNS 
+1, PP$  IN
+6, DT NN 
+6,JJ JJ NNS 
+4," NN ,"
+6, NN  IN
+6,VB  NN 
+6, JJ  IN
+6,CC   IN
+4,JJ NN  CC
+3, JJ NNS 
+3,DT JJ IN
+1,IN   IN
+5,DT NN  IN
+6,DT JJ NN 
+6, DT NNS 
+6,",  NNS "
+3,IN  IN
+4,DT JJ IN
+4, DT IN
+3, JJ CC
+5, JJ  IN
+5,NP JJ NNS 
+5,DT JJ NNS 
+5,JJ JJ  IN
+5,NP JJ  VBZ
+5," JJ  ,"
+5, JJ  VBD
+5,JJ JJ NNS 
+5, JJ  IN
+5,POS JJ  VBD
+5,JJS JJ NN 
+5, JJ  IN
+5,PP$ JJ NN 
+5, JJ  IN
+5, JJ  VBD
+5, JJ NNS 
+5, JJ  IN
+5,NP JJ  VBZ
+5,DT JJ NN 
+6,"CC   ,"
+6,CC  NNS 
+1,''   VBZ
+6, JJ NNS JJ
+6, JJ NNS JJ
+6, JJ NN NNS
+6,  NNS 
+6,CC  NN NNS
+6,VB  NNS 
+6,VB  NNS 
+6, JJR NN 
+5,POS NN  IN
+6, JJ NNS 
+1, JJ  RB
+1," DT  ,"
+1,JJ JJ  IN
+1, NN  IN
+5, PP$  .
+6, JJ NNS 
+5, NN MD
+5,DT NN RB
+6,PP$ NN NN 
+6,VBN   TO
+6,VB  NNS 
+6, JJR NNS 
+1,``   IN
+6,CC  NNS 
+1,IN   IN
+6, VBG NNS 
+6,DT JJ NN 
+6,CC   CC
+5, JJ  VBD
+1, DT  VBN
+1,VBG   IN
+1,NN POS  IN
+1,NP POS  IN
+5, JJ  IN
+5,DT NN JJ NN
+6,IN  NNS 
+6,IN  NNS 
+3, JJ .
+6,WRB  NNS 
+6,CC  NNS 
+6,CC   VBD
+6,CC   VBN
+6,DT NN  VBZ
+6,VB  NNS 
+6,``  NNS 
+6,VB  NNS 
+6,JJ NNS NN 
+5, DT IN
+6,IN  NNS 
+6,CC  NN 
+6,"IN   ,"
+1,NNS POS  IN
+6,CC  NNS 
+6, JJ NNS JJ
+6,DT JJ NN NNS
+6,   IN
+6,TO  NNS 
+3,WP$ JJ  CC
+5,"POS NN ,"
+5,NN  PP
+5,NP POS  IN
+6,VB  NNS 
+1, JJ  IN
+4, DT IN
+5,VB  IN
+6,VB   IN
+6, JJ NNS 
+6, VBG NNS 
+1, NN  IN
+6,IN  NNS 
+6,JJ JJ NNS 
+6,  NN 
+6,JJ  NNS 
+1,"DT JJ  ,"
+6, JJ NNS 
+6,JJ JJ NNS 
+6,"IN   ,"
+5, DT  .
+1,"VBN   ,"
+6, PP$ NN 
+6, JJ NNS 
+6, DT NNS 
+5,IN  RB
+5,JJ NN .
+1,VBN   IN
+1,VBD   IN
+1, DT  IN
+1, DT  IN
+6,JJ JJ NNS 
+6,IN   VBN
+5,IN  IN
+4, DT IN
+6,DT JJ NN 
+5,VBZ  IN
+6,IN   CC
+6, JJ NNS 
+6,VBP  NNS 
+1,",   IN"
+1, PP$  IN
+5,"AB NN  ,"
+6,IN  NNS 
+6,VB  NNS 
+6,IN  NNS 
+6,CC  NN 
+6,IN  NNS 
+1, JJ  RB
+6, DT NN 
+5, PP$ IN
+6,VB  NNS 
+6, JJR NNS 
+5,AB NN  IN
+1,RP   IN
+4,DT JJ  IN
+6,IN  NNS 
+6,VB  NNS 
+6,IN  NNS 
+1, JJ  RB
+1,   MD
+6,JJ JJ NNS 
+6, NN NNS 
+5, PP$  IN
+5,AB NN  IN
+5, NN IN
+5,JJ NN  .
+3,"JJ NN ,"
+5,AB NN  IN
+1,IN  IN
+4, PP$  .
+4, DT IN
+1," NN  ,"
+1,JJ NN  .
+1, JJ  IN
+1,JJR NN  IN
+1,NN   IN
+5,VBZ  IN
+4, PP$ .
+1,JJ NN  .
+1,JJ NN  VBD
+1,"JJ NN  ,"
+5,"IN   ,"
+2, JJ  IN
+5, WP$ VBP
+1, JJ  ''
+4,DT NP IN
+6,VBP   IN
+1, PP$  IN
+1,JJ NN  IN
+1,NN   IN
+6,IN   ``
+3,DT JJ NN 
+4, JJ ''
+3,JJ JJ .
+1, PP$  IN
+1,JJ NN  VBD
+5, NN CC
+1, NP  MD
+4,NP POS  IN
+5,JJ JJ  IN
+4,IN   .
+4,IN   IN
+4,"IN   ,"
+4,IN   :
+4,"IN   ,"
+4,IN   .
+4,IN   CC
+4,"IN   ,"
+4,IN   .
+4,IN  NN 
+4,"IN   ,"
+6,IN  NN 
+1, JJ  IN
+5,VBZ  IN
+6, JJ NNS 
+6,POS JJ NNS 
+5, DT  .
+6,DT PP$  IN
+6,CC  NNS 
+6, JJ  IN
+6,",   CC"
+5, DT  IN
+5,VBN  IN
+6,IN  NNS 
+6,DT JJ NN 
+6,IN  NNS 
+6,IN  NNS 
+6, JJR NN 
+6, JJR NN 
+1,NN   RB
+6, JJ NNS 
+6, JJ NNS 
+6,IN  NNS 
+1, DT  VBZ
+1,IN   IN
+5, JJ  IN
+5, JJ  .
+5,DT JJ  VBD
+5,NP JJ  VBD
+5,NP JJ  VBZ
+5, JJ  VBZ
+5, JJ  JJ
+5, JJ  IN
+5,NP JJ NN 
+5, JJ  IN
+5, JJ  VBD
+5,NP JJ NN NN
+5,DT JJ NN 
+6,VB  NNS 
+6,RBR JJ NNS 
+6,IN  NNS 
+6, JJ  IN
+6,IN  NNS 
+6, JJR NNS 
+6,DT JJ NN 
+1, VBG  IN
+5,DT NN  IN
+6,``  NNS 
+6,VBG  NNS 
+6, JJR  IN
+6,WRB  NNS 
+6,IN  NNS 
+6,IN  NNS 
+6,DT JJ NN 
+6,IN  NNS 
+6, NN  .
+5, PP$  IN
+5," PP$  ,"
+5,"NN POS  ,"
+4," PP$ ,"
+5, JJ  IN
+4,NP POS  TO
+4,PP$ JJ TO
+5,NP POS  IN
+6, DT  IN
+5, DT  RB
+5,VB  IN
+5, DT  IN
+5, DT VBD
+5,IN  
+6,"VBG   ,"
+4,"JJ JJ ,"
+5, DT  IN
+6,CC  NN 
+6,   MD
+2,IN   TO
+3,NN POS NN 
+1,:   IN
+1, JJ  RB
+5,DT JJ  IN
+6,VB  NNS 
+4, JJ  .
+5,VBZ  IN
+3,JJ NN CC
+5,DT VBG  IN
+6,IN  NN 
+6,DT JJR NN 
+5, NN VBD
+5, NN .
+1, NN  IN
+5,DT JJ  IN
+6, JJR NNS 
+5,AB NN  IN
+5,NP POS  IN
+5,AB NN  IN
+6, NP NNS 
+1, NN VBZ 
+1,VBD   IN
+1,IN   IN
+6,JJ NP NNS 
+6, JJ NNS 
+4,DT JJS  IN
+6, JJR NNS 
+6, JJR NNS 
+5,NP JJ  VBD
+1,JJ NN  RB
+6,",  NNS "
+5, NN MD
+5, NN RB
+5, PP$ IN
+5, DT IN
+1,IN   ''
+6,JJ JJ NNS 
+6, JJR NNS 
+6,:  NN 
+6,JJR JJ NN 
+6, DT NN 
+6,CC  NNS 
+5,NP JJ IN
+5," DT  ,"
+5, DT  RB
+4,POS JJS  .
+5,NN POS .
+6,RB JJR  
+6, JJR NNS 
+6, JJ  VBN
+6,NN JJ NN 
+5,VBZ  IN
+3,"JJ NN ,"
+4, JJ  ''
+6, NP NNS 
+5,IN  IN
+6,IN  NNS 
+6,  JJ NNS
+6,VBG  NNS 
+5,POS NN IN
+5,DT NN  IN
+5,AB NN  IN
+6, JJ NNS 
+4,DT JJ  .
+4,DT JJ  .
+6, JJR NNS 
+6, JJ NNS 
+6,"VBG   ,"
+5,"PP$ NN ,"
+5,"PP$ NN ,"
+5, DT VBP
+6,VB  NNS 
+4,DT JJS IN
+5,IN  IN
+6,IN   VBG
+6,VBN   VBZ
+6, NN NNS 
+6,RB  NNS 
+6,DT JJR NN 
+6,VB   IN
+6,IN   VBZ
+6,DT VBN  .
+6, DT NN 
+6,NP POS NN 
+6, PP$ NN 
+4, JJ .
+6,IN  NNS 
+6,VBG   IN
+5, DT  IN
+5,DT NN  RB
+6,IN  NNS 
+4,JJS JJ  IN
+6, JJ NN 
+6,  NNS 
+6,CC   .
+6,WRB  NNS 
+6,  NNS 
+3, JJ ''
+4, PP$ VBP
+5, JJ IN
+6,JJ JJ NNS 
+1,VB   IN
+6, JJR NN 
+6,IN  NN 
+6,  NN 
+6, JJ NN NNS
+5,AB NN  IN
+5,AB NN  IN
+5, NN VBD
+5, NN CC
+5, DT  IN
+5, JJ  ''
+5,"DT JJ  ,"
+6,IN  NNS 
+6,DT JJ NN 
+6,IN  NNS 
+6,IN  NNS 
+4,DT JJ  IN
+6,IN  JJ NNS
+1,NN   IN
+3, JJ .
+6,JJ JJ NNS 
+5,POS NNS VBP
+4,DT JJS IN
+6,CC   IN
+1, DT  IN
+1,DT NN  IN
+5,VBZ  IN
+3," JJ ,"
+5,VBZ  IN
+4, NP .
+4, PP$ VBD
+6, VB NNS 
+4,NP POS IN
+5,AB NN  IN
+6,"IN   ,"
+6,   MD
+6, JJ NNS 
+6,JJ JJ NN 
+6, DT NNS 
+6, JJ NN 
+6,POS JJ NN 
+5, DT  IN
+6,DT JJ NN NN
+6,TO   VBD
+6,TO   CC
+6, JJ NN 
+4,DT JJS  IN
+6,IN  NNS 
+4, DT  IN
+1, NP  IN
+6,CC  NNS 
+4,DT JJ  CC
+6, VBG NNS 
+1, JJR  IN
+6,VB  NN NNS
+6,WRB  NNS 
+6, JJ NNS 
+5, DT  IN
+6,JJ NNS NN 
+5,PP$ NN  IN
+6,DT JJ NN 
+1,VBN   .
+6,VB  NNS 
+6,VB   IN
+1,IN   IN
+1,IN   VBN
+1, VBN  IN
+1,DT NN  .
+1,VBN   IN
+1,RP   IN
+1,VBP   IN
+4, PP$ .
+5,AB NN  IN
+6,AB NN NNS 
+5, NN IN
+6,VB  NNS 
+6,",  NNS "
+6,VBN  NNS 
+5,JJ NN CC
+5,AB NN  IN
+1, JJ  IN
+1,IN   IN
+6,IN   CC
+6,DT JJ NN 
+6,"CC   ,"
+6,)  NNS 
+6,VB  NNS 
+6, JJR NNS 
+6,AB VBG  IN
+6, JJ NN 
+6, DT NN 
+6,IN  NNS 
+6, JJ NN 
+6,"VBG   ,"
+6,IN  NN 
+6,IN   VBD
+6,POS JJ NN 
+6, JJ NN 
+6,POS JJ NN 
+6,IN   CC
+5,NN POS  IN
+6," JJ  ,"
+6,CC  NNS 
+4,JJ JJ VBP
+4,DT JJ IN
+1,"RBS JJ  ,"
+5, NN IN
+6, JJ NNS 
+1,DT DT  .
+6, JJR NN 
+5,AB NN  IN
+6,JJ JJ NNS 
+5,PP$ NN IN
+6,IN  NNS 
+5,IN  IN
+5,AB NN  IN
+5, JJ VBP
+6, DT NN 
+1, JJ  IN
+6,DT JJ NN 
+6,JJ NNS NN 
+6, JJ NNS 
+6, JJ NNS 
+6, JJR NNS 
+6,VB  NNS 
+6, JJ NNS 
+6,",  NNS "
+5, PP$ IN
+6,IN  NNS 
+6,CC  NNS 
+6,POS NN NN 
+6,VB  NNS 
+1,NP POS  IN
+6,:  NNS 
+6,VB  NNS 
+6,VB  NNS 
+6,VBD  NNS 
+6,VB  NNS 
+6,IN   IN
+6,NN NN NNS 
+6," DT  ,"
+6,CC  NNS 
+1,VBN   IN
+6,IN  NN 
+6, DT NN 
+6,IN  NNS 
+6,VB  NNS 
+6, JJR NNS 
+6, NP NNS 
+6,JJ JJ NNS 
+6,(   )
+6,JJR NP NNS 
+4, DT IN
+5, PP$  IN
+5,DT NP  IN
+6,",  NNS "
+5,AB NN  IN
+5,JJR NN CC
+1,NP POS  IN
+5,IN  IN
+6,IN  NNS 
+6,VB  NNS 
+6,IN  NNS 
+6, DT  IN
+6, NN NNS 
+6, JJ NNS 
+6,",  NNS "
+6,VB  NNS 
+5,"JJ NN ,"
+6,JJ JJ NNS 
+5,DT NN  .
+6,IN  NNS 
+6, JJR NNS 
+6, JJ NNS 
+6,DT JJ NN 
+6, JJ  .
+3, JJ .
+5,VBZ  IN
+6,DT JJ NN 
+6,IN  NNS 
+6,POS NN NN 
+5, NN CC
+6, JJ NNS 
+6, DT NNS 
+6, DT NN NN
+6, NN NNS 
+6,IN  NNS 
+6,VBN  NNS 
+6,VB   IN
+6, JJ  CC
+6,JJ NN  .
+6,IN  NNS 
+5,NPS VBP IN
+6,  NN 
+6, DT  :
+4," JJ  ,"
+1,NP POS  MD
+5, NN  IN
+1,NP POS  IN
+4," PP$ ,"
+4,PP$ JJ .
+6, DT NN 
+6,DT JJ NN 
+6,VBP  NNS 
+4, DT IN
+6,CC  NNS 
+6, JJ NNS 
+6, NP NNS 
+6, JJ NNS 
+5,PP$ VBG  IN
+6,IN  NNS 
+1, JJ  IN
+6,VBG  NNS 
+6,NN JJ NN 
+6,  NNS 
+5, PP$  IN
+1,VBN NP IN
+6,CC  NNS 
+6, VB NNS 
+6, VBG NNS 
+6,IN  NNS 
+5,JJ NN CC
+6,IN   CC
+6, JJ NNS 
+6,IN  NNS 
+6, NN NNS 
+4, DT  IN
+6,VB  NNS 
+6, DT NN 
+6, JJ NNS PP
+6, JJ NN 
+6,PP$ JJ NN 
+6, VBG NNS 
+6,DT VBN NN 
+5,VBZ  IN
+6,IN  NNS 
+5,DT NN  IN
+5, NN  IN
+6,VB  NNS 
+6, PP$  VBZ
+6,AB AB  .
+6,VB PP$ NNS 
+6,IN   CC
+6, IN  MD
+6,VBD   IN
+6,POS JJ NNS 
+5,DT NN MD
+3, JJ .
+1, DT  ''
+5,IN  IN
+6,IN  NNS 
+6,CC  NNS 
+6,AB NN NN 
+5,VBZ  IN
+6,JJ JJ NNS 
+5,VBZ  IN
+6,PP$ JJ  CC
+6,DT JJR NN 
+5,AB NN  IN
+5,VBZ  IN
+5,JJ   IN
+6,JJR JJ NN 
+6, JJ NN 
+6,IN  NNS 
+1,``   IN
+6,VBG  NNS 
+6,VBP  NNS 
+1,NNS POS  IN
+6,CC  NNS 
+6,CC  NNS 
+1,NP POS  VBD
+6,IN   IN
+6, NN  IN
+6, JJ NNS 
+1, DT  IN
+1, JJ  IN
+1, JJ  VBZ
+1,RB JJ  IN
+1,IN   .
+6, JJ NNS 
+6,JJR JJ NNS 
+6,IN  NNS 
+6,IN  NNS 
+5,NN NN  .
+1,IN   .
+4,JJ JJS TO
+6, JJ NNS 
+6,NP POS NN NN
+6,RB VBG NNS 
+6,VB  NNS 
+4,POS JJ  TO
+6,CC   :
+6, JJR NNS 
+1,DT JJ  IN
+6,CC  NN 
+6,VB  NNS 
+6,IN  NNS 
+6,",  NNS "
+6, DT NNS 
+6,TO  NNS 
+5,"DT JJ  ,"
+5,NP JJ  VBZ
+5, JJ  IN
+5,JJ JJ  IN
+5, JJ  CC
+5,IN JJ NNS 
+5,DT JJ  MD
+6, JJ NNS 
+6, JJ NNS 
+6,JJ JJ NNS 
+5,VBZ  IN
+1,IN   IN
+1,"IN   ,"
+1,VBZ JJ  IN
+6,IN  NNS 
+1, JJ  IN
+6,VB  NNS 
+3,JJ JJ  VBZ
+5,NN NN CC
+5,DT JJ .
+1,VBN   IN
+5,AB NN  IN
+6, JJ NNS 
+6,POS JJ NN 
+6, JJ NN 
+6,IN  NNS 
+1,VBN   IN
+6,VB  NNS 
+6,VBD   IN
+6, JJ  IN
+6,)  NN AB
+6,IN  JJ JJ
+6, JJ NNS 
+1, JJ  IN
+1, DT  IN
+1,VB   IN
+6, JJ NNS 
+6,JJ JJ NNS 
+6,VBN  NNS 
+6, DT NNS 
+6, DT NN NN
+6,IN  NNS 
+6, DT NN NN
+6, DT NN NNS
+1,VBN   IN
+6,JJ JJ NNS 
+6, JJ NNS 
+5,NN NN  IN
+5,AB NN  IN
+5, JJ IN
+6,CC  NNS 
+5,JJ NN  VBD
+5,VB  IN
+6,IN   VBN
+6,:   VBN
+5,AB NN  IN
+5,"AB NN  ,"
+6, NP NNS 
+1,VBD   IN
+1, PP$  RB
+1,VBN   IN
+1,NP POS  IN
+1, DT  IN
+6,VB   RB
+6, DT  IN
+5,DT NN  IN
+6,VB  NNS 
+5,VBZ  IN
+4, POS  .
+6, JJ NN 
+1,"NNS POS  ,"
+1," JJ  ,"
+5,PP$ NN  IN
+5,VBZ  IN
+6,VB  NNS 
+6,CC  NNS 
+6,VB  NNS 
+6,VB  NNS 
+6,DT JJR NNS 
+6,CC  NNS 
+6,VB  NNS 
+6, VBG NNS 
+6,VB  NNS 
+5,"POS NNS ,"
+6,IN  NNS 
+6, VBG NNS 
+3,PP$ JJ  VBD
+6,VBN  NNS 
+5,VBZ  IN
+6, JJR NNS 
+6,POS JJ NN 
+6, JJ NNS 
+4,DT JJS IN
+6,CC  NNS 
+6, JJ NNS 
+6, NP NNS 
+6, DT NN 
+5, NN IN
+5, NN VBG
+6, VBG NNS 
+1,VBN   IN
+5,AB NN  :
+6,VB  NNS 
+6, JJ NNS 
+5,DT NN IN
+4,NNS POS IN
+5," NN ,"
+4, JJ  ''
+4,"PP$ JJ ,"
+5," JJ ,"
+2, JJ  IN
+6, VBG NNS 
+6, DT  CC
+5,IN  IN
+6,VB  NNS 
+5,DT NN  IN
+5,PP$ NN IN
+5, JJ IN
+6,VB  NNS 
+6,(   MD
+6,JJ JJ NNS 
+6,IN  NNS 
+6,CC  NN 
+6,IN  NN 
+6,CC  NN 
+4, PP$ RB
+6, JJ  NNS
+6, VBG NNS 
+6,JJ JJ NNS 
+6,IN  NNS 
+1, JJ  IN
+6,IN  NNS 
+6,CC  NN 
+1, NN  IN
+6,VBD  NNS 
+6,JJS JJ NNS 
+6,VB  NNS 
+6, VBG NNS 
+6, VBG NNS 
+6,JJS JJ NNS 
+1,CC   IN
+6,VB   IN
+4,NNS POS VBZ
+1, NN  MD
+1, DT  IN
+5,DT NN  IN
+1,NP POS  IN
+1,VBN   IN
+6,POS VBN NN NNS
+6,POS JJ NN NN
+6, DT NN NN
+6,IN  NN NNS
+1, DT  IN
+6,"VBG   ,"
+6,JJS JJ NN 
+6, JJ NNS 
+6, JJ NN 
+6,JJ   .
+4, NP MD
+4, NP RB
+4,",  ."
+5,IN  IN
+6, JJ  VBG
+4,"POS JJ ,"
+6,IN  NNS 
+6,NP POS NN 
+6, DT NN 
+6, JJ NNS 
+6,JJ JJ NNS 
+6, JJ NNS 
+6, NN NNS 
+6, DT NNS 
+6, JJ NN 
+6,VB  NNS 
+3, DT IN
+4,``  MD
+5,DT NN  IN
+6,$ AB NN 
+1, DT  IN
+1,"JJ NN  ,"
+1, DT  IN
+4, DT  IN
+5,NN NN  IN
+6,RP  NNS 
+4,"PP$ JJ ,"
+5, PP$  IN
+6,JJ JJ NNS 
+4,DT JJ  .
+6,   IN
+6,  NNS 
+6,IN  NNS 
+1,DT JJ  IN
+1,PP$ JJ  IN
+1, DT  IN
+6,VB  NNS 
+6, JJR NNS 
+6,VBZ  NN NN
+6, JJR NNS 
+6, PP$  NNS
+6, VBG NNS 
+6, JJR NNS 
+1,VBN   IN
+6,IN  NNS 
+4,DT JJS IN
+6,VB  NNS 
+6, JJ NNS 
+6, DT NN 
+6,IN  NNS 
+6,  NNS 
+6, JJ NNS 
+1,IN   IN
+6, JJ  NNS
+6,JJ JJ NNS 
+1,DT JJ  .
+1, PP$  IN
+6,IN  NNS 
+6, JJR NNS 
+6,VB  NNS 
+1, DT  IN
+6,VB  NNS 
+6,VB   CC
+6, JJ  IN
+1,VBZ   .
+6, JJR NNS 
+1, VBG  IN
+6,IN  NNS 
+6,DT JJ NN NN
+5,NN JJ  IN
+6, NP NNS 
+6, VBG NNS 
+6,CC  NN 
+6,IN  NNS 
+6,VBG  NNS 
+6,IN  NNS 
+6, DT  IN
+6,IN  NNS 
+6, JJR NNS 
+6,IN  NNS 
+4,DT JJ  IN
+6, JJ NNS 
+1, JJ  IN
+5," JJ ,"
+6,POS JJ NNS 
+1,VBN   IN
+5,POS NN  IN
+5,PP$ NN  IN
+6,VB  NNS 
+6,DT JJ NN 
+5,AB NN  IN
+5, PP$  IN
+5,NP POS  TO
+5,DT JJ  IN
+1, JJ  IN
+4,POS JJS 
+6, JJR NNS 
+6,VBN  NNS 
+6,JJR JJ NNS 
+6, JJ NNS 
+6,VBG  NNS 
+6,VB  NNS 
+4,PP$ JJ .
+6,VBZ  NNS 
+6,IN  NNS 
+6,   IN
+5,JJ NN  IN
+4, DT  IN
+6, JJ NNS 
+1,DT JJ  IN
+1,PP$ JJ  IN
+6,CC  NNS 
+6,CC  NNS 
+1, DT  IN
+6, NN  .
+4, JJ .
+6,VBN   TO
+6,NN JJ NN 
+6,VB   IN
+6,VBG NN  IN
+6, PP$  CC
+1, DT  IN
+1,NP POS  IN
+6,IN  NN NNS
+1,   IN
+1,"DT NN  ,"
+6, JJ NNS 
+6,IN  NNS 
+6,)  NNS 
+1,JJ NN  CC
+6,VBD  NNS 
+6,IN  NN NNS
+5, JJ NNS 
+5, JJ  VBZ
+5,DT NN  IN
+6,JJ JJ NNS 
+6,IN  NN NNS
+6,VB  NNS 
+6, NN NNS 
+6,JJ NP NNS 
+5,AB NN  IN
+6,CC  NNS 
+1, DT  IN
+6,",  NN NNS"
+6, JJ NNS 
+6,DT JJR NNS 
+6,JJ JJ NN NN
+1,NN   IN
+5, NN IN
+6,IN  NNS 
+5, NN CC
+6,PP$ JJ NNS 
+6,POS JJ NNS 
+5,NP POS  IN
+5, PP$ IN
+6,"IN   ,"
+6,"IN   ,"
+6, JJ NNS 
+6,JJ   IN
+4,DT JJ  .
+4,DT JJ  .
+6,"IN   ,"
+4, DT IN
+4,DT JJ  .
+6,IN  NNS 
+6, JJ NNS 
+6, JJ NNS 
+6,VBZ  NNS 
+6, VBG NNS 
+6,IN  NNS 
+1,JJ JJ  IN
+6,IN  NNS 
+6,CC   VBN
+6,CC   IN
+6,JJS JJ NN 
+6,JJS JJ NN 
+6,",   IN"
+6, WP NN 
+6,DT VBN NN 
+6, JJR NNS 
+6, DT NN 
+6,DT JJR NN 
+6,DT NN NNS 
+1,VBP   IN
+4,DT JJ  IN
+6,JJ JJ NN 
+6,VBP  NNS 
+3,NN POS .
+6, JJ NNS 
+6,VB   RB
+6, JJ NNS JJ
+6,   IN
+6,IN  NNS 
+1, JJ  IN
+6, NP NNS 
+6,DT JJ NN NN
+1, NN  NN
+1," NN  ,"
+6,JJ JJ NNS 
+5,DT NN IN
+6,IN  NN 
+6,VBG  NNS 
+6, DT  IN
+6, VBG NNS 
+6,",  NNS "
+6, JJ  NNS
+3, JJ .
+6,VB  NNS 
+6,DT JJ NN 
+1, JJ  .
+5,DT NN  IN
+1, JJR  IN
+1," JJ  ,"
+6, JJ NNS 
+6, JJ NNS 
+6,VBP  NNS 
+6, DT NN 
+6,AB NN  .
+3, JJ .
+5, DT  IN
+3,PP$ JJ CC
+6,IN  NNS 
+6, JJ NNS 
+1, DT  IN
+5, DT  IN
+4, PP$ .
+5, DT  IN
+6," JJ  ,"
+6,VB  NNS 
+6, JJ NNS 
+1,DT JJ  IN
+6,VB  NNS 
+6,IN  NNS 
+1,VBG   IN
+6,JJ JJ NNS 
+6, JJ NNS 
+6,JJ JJ NNS 
+6,JJ   IN
+1,IN   IN
+1,"IN   ,"
+6,CC  NNS 
+6,DT JJ NN 
+1, JJ  IN
+2,"IN   ,"
+1,DT VBG  IN
+1, DT  IN
+5, JJ  IN
+6, JJ NNS 
+6,VB  NNS 
+6, JJ NNS 
+6, JJR NNS 
+4,DT JJS  IN
+6, DT  VBN
+6,RP  NNS 
+6,IN  NNS 
+1,NP POS  IN
+1, DT  IN
+1,VBP   VBD
+6,DT JJ NN 
+5,IN  IN
+5,NP NN IN
+5,DT JJ  IN
+5,"NP POS  ,"
+5,NN NN  CC
+5,NN NN  IN
+5,NN NN  CC
+5,NN NN  IN
+1,VBN   IN
+5,NP NP .
+5,"NP POS ,"
+5,"NP POS  ,"
+5, PP$ IN
+5,VBP  IN
+6,IN   CC
+3,POS JJ IN
+5,PP$ NN  IN
+6,JJ NP NN NN
+1, NN  IN
+6,JJR NP NNS 
+6,IN  NNS 
+1,JJ NN  .
+1, PP$  VBZ
+6, DT NN 
+3, JJ .
+6, DT NN NN
+3, JJ .
+5,AB NN  IN
+1,   IN
+6,IN  NNS 
+1, JJ  IN
+6, VBG NNS 
+6, JJR NNS 
+6, JJR NNS 
+6, JJ NNS 
+6, JJ NN 
+5,VBZ  IN
+6, JJR NN 
+1,IN   IN
+1,DT JJS  .
+1,   IN
+6,VBG TO  NNS
+5, PP$  IN
+6,IN  NNS 
+6, DT  IN
+6, NN NNS 
+5,PP$ JJ IN
+1,NP POS  IN
+4,NP JJ VBP
+5,DT NN IN
+1, JJ  
+1,IN   IN
+5,JJ NN IN
+5, JJ TO
+6,"IN   ,"
+6, JJ NNS 
+4,DT NP  VBZ
+5,POS JJ CC
+6,VBN  NNS 
+6, JJ NNS 
+5, PP$  IN
+5, PP$  TO
+1, PP$  IN
+6, VBG NNS 
+6,VBZ  NNS 
+5,AB PP$ IN
+5,NN VBG  IN
+5, DT  IN
+6,IN  NNS 
+5,JJ NN MD
+5," NN ,"
+5, NN CC
+6,CC   VBN
+6,JJ JJ NNS 
+6,IN   CC
+6,",  NNS "
+5, NN VBD
+6, JJ  CC
+5,IN  CC
+6,VBZ  NNS 
+6,VB  NNS 
+6, JJR NNS 
+6, NP NNS 
+6,",  NNS "
+6,VB  NNS 
+1,VBN   IN
+6, VBG  IN
+5,DT NN  IN
+6, JJR NNS 
+6,NP  NNS 
+1,VBG   IN
+6,  NNS 
+6,JJ JJ NNS 
+6,CC   IN
+6, NN NNS 
+5,AB NN  TO
+1,VBN   IN
+6, DT NN NN
+6, DT NN NN
+6,IN  NNS 
+5,NN JJ  IN
+5,AB NN  IN
+5,DT VBG  IN
+1, JJ  IN
+4,DT JJS  IN
+5,VBZ  IN
+6,CC  NNS 
+6,VBD   IN
+5,DT NN  IN
+6,VBG   IN
+6,DT NN NN 
+5, PP$ IN
+1,JJ JJ  IN
+6,CC  NNS 
+6,IN  NN 
+6, JJ  CC
+6,IN   CC
+4, JJS IN
+5, PP$  IN
+6,IN   .
+5,POS NN IN
+6, JJ NNS 
+6,IN  NNS 
+2, TO  JJ
+1,IN   VBZ
+6,",  NNS "
+6,DT JJ NN 
+5," NN ,"
+6, JJ NNS 
+6,RP  NNS 
+6,(   )
+6,IN  NN NN
+6,IN  NNS 
+6, DT NN 
+6,CC  NN 
+6,IN  NNS 
+6,IN  NNS 
+6,IN  NNS 
+1, JJR  IN
+1, PP$  IN
+4, DT IN
+1, PP$  IN
+5, NN .
+6,IN  NNS 
+6,PP$ JJ NN 
+5,VBZ  IN
+6,JJ JJ NNS 
+5,AB NN  IN
+6, JJ NNS 
+1, PP$  IN
+6,JJ JJ NNS 
+6, JJ NNS 
+6,IN  NNS 
+6, VBG NNS 
+6, JJ NNS 
+6, JJ NN NNS
+6,IN  NNS 
+6, JJR NNS 
+6,CC  NNS 
+6, VBG NNS 
+6,IN  NNS 
+6,IN  NNS 
+6, DT NN 
+6, JJ NNS 
+1,DT VBG  IN
+4, PP$ CC
+4, DT  IN
+5,NP POS  IN
+5,AB JJ  IN
+4, DT  
+5,AB NN  IN
+1,IN   IN
+5,DT NN  IN
+3, JJ .
+3," NN ,"
+6, JJ NNS 
+6, VB NNS 
+6,JJ JJ NNS 
+6, NP NNS 
+6,VB  NNS 
+6,VBN  NNS 
+1, JJ  IN
+1,RB PP$  MD
+6,  NNS 
+6, NN NNS 
+6, NP NNS 
+4,NN POS  VBD
+4,PP$ JJ  IN
+1,VBN   .
+6,CC  NN NNS
+6,"IN   ,"
+6,VBG   IN
+5," NN ,"
+5, NN VBD
+6, JJ NNS 
+1,DT NN  IN
+6, JJ NNS 
+6,POS JJ NN 
+1,DT JJ  IN
+1,NP POS  IN
+1, DT  IN
+1,IN   IN
+1,IN   IN
+1,VBG   IN
+5,VBZ  IN
+5,IN  IN
+4, PP$ .
+5, DT  IN
+6,VB  NNS 
+1,NP POS  IN
+5,AB NN  IN
+1,"NP NP  ,"
+6,JJ   TO
+5,VBZ  IN
+3, NN IN
+6,",   MD"
+6, JJ NNS 
+6,NN JJ NNS 
+6,JJ JJ NNS 
+4,"PP$ JJS  ,"
+1,VBG   IN
+6,WRB  NNS 
+6,IN  NNS 
+6, DT NN 
+6,AB NN NNS 
+6,DT JJ NNS 
+6, JJR NNS 
+6,VB  NNS 
+6, DT  IN
+6, NP NNS 
+5,JJ NN  MD
+6,IN  NNS 
+6,NP  NNS 
+4,"PP$ JJS  ,"
+5, NN VBD
+5,JJ NN VBD
+5,IN JJ  IN
+5,NP JJ  VBD
+6, JJ NNS 
+6,IN  NN 
+4,PP$ JJ TO
+6, NN NNS 
+6,IN   IN
+6,",  NNS "
+6,NP POS NN 
+6,"AB NN  ,"
+3, JJ .
+6, JJ  IN
+6, DT  IN
+6, DT  
+6,DT JJR NN 
+1, DT  IN
+1, JJ  IN
+4,DT JJ  .
+6,CC  NN 
+2," DT  ,"
+5,NN VBG  CC
+5,AB NN  .
+5,DT JJ VBP
+1,VBN   IN
+1," PP$  ,"
+1,VB   IN
+6,CC  NN 
+6,VBG  NNS 
+6,IN  NNS 
+6, JJR NNS 
+6, JJR NNS 
+1, JJ  IN
+5, JJ IN
+5,AB NN  IN
+6, JJ  IN
+4,NN POS IN
+3, JJ .
+3, NP IN
+6, JJ NNS JJ
+6, JJR NNS 
+5,VBZ  IN
+5,NP POS  ``
+6,VB  NNS 
+5," NN ,"
+6,IN  NNS 
+6, JJR NNS 
+5, NN VBD
+4,IN   :
+4,DT JJS ''
+5,DT NN  IN
+5,AB NN  IN
+5,AB NN  IN
+3," JJ ,"
+6,JJ JJ NNS 
+4,NN POS  CC
+4,NN POS  TO
+1,JJ   IN
+1,VBD   IN
+1, JJ  IN
+6, NP NNS 
+6, DT NN NN
+6,VB  NNS 
+6, JJ NNS 
+6, JJ NNS 
+5,AB NN  VBN
+2,IN   TO
+1, PP$  IN
+6,VB  NNS 
+1, JJ  IN
+6, JJ NNS 
+3,POS JJ  VBZ
+5,IN  IN
+6,PP$ JJ NNS 
+6,IN   IN
+6,VBN   .
+6, DT  IN
+4, DT  IN
+4, DT  IN
+5,JJ   VBD
+5,NN JJ  IN
+6,VBZ   IN
+4,DT JJS  IN
+4,DT JJR  :
+4,)  VBG
+6,DT JJ NN 
+6, DT  VBN
+6,PP$ JJ  CC
+6,CC   VBZ
+6," DT  ,"
+4,PP$ JJ .
+4,POS JJS ''
+5,AB NN  .
+6,JJ JJ NNS 
+6, VBG NNS 
+6, VBG NNS 
+6, JJ NNS 
+6,AB AB NN 
+6,JJ JJ NNS 
+3,JJ NN .
+3,JJ NN .
+4,IN   ''
+1,CC   VBZ
+1, VBG  IN
+5,AB NN  CC
+6, JJR NNS 
+1,IN   IN
+6,RP  NNS 
+6,JJ JJ NN NNS
+6, VBG NNS 
+1,VBD   IN
+6, NP NN NNS
+6, VBG NNS 
+6, JJ NNS 
+6,NNS POS NNS 
+6, VBG NNS 
+4, JJ TO
+3,JJ JJ VBG
+5,AB NN  IN
+5," NN ,"
+5, JJ  VBD
+6,IN  NNS 
+5,AB NN  IN
+5,PP$ VBG  IN
+5, DT  IN
+5,AB NN  IN
+1,NNS POS  .
+5,NN JJ  IN
+5, NN .
+4,NN POS MD
+5,IN  IN
+6, JJ NNS 
+6,JJR JJ NNS 
+6,IN  NNS 
+6, DT NN NN
+1, PP$  IN
+5,VBG  TO
+5, NN  IN
+5, JJ  IN
+5,NP JJ  VBD
+5, JJ  VBD
+5,NP JJ  IN
+5, JJ  IN
+5, JJ  IN
+5, JJ  IN
+5,PP$ JJ NN AB
+5, JJ  IN
+5, JJ  VBZ
+5, JJ  VBZ
+5, JJ  IN
+5, JJ NNS 
+5, JJ  IN
+5, JJ  VBD
+5,DT JJ NN 
+1,DT JJ  IN
+4,IN   IN
+1, DT  IN
+6,IN   NNS
+6,DT JJ NN 
+6,VBP  NNS 
+6,IN  NNS 
+4,PP$ JJ VBP
+6,TO  NNS 
+6,VB  NNS 
+6,IN  NNS 
+6,IN   IN
+6,VBP  NNS 
+5,NN NN  IN
+6,POS NN NNS 
+6,VBN  NNS AB
+6,IN  NNS 
+6,VB  NNS 
+6, JJR NNS 
+6, JJ NNS 
+6,VBN  NNS 
+6,DT VBN NNS 
+6,IN   IN
+5,JJ NN IN
+1,NN POS  VBD
+6,JJ JJ NNS 
+5,VBZ  IN
+6,DT JJR NN 
+6, WDT  MD
+6,VBP   IN
+6,VB  NNS 
+6,IN  NNS 
+6, JJR NNS 
+6, JJ NNS 
+6,IN  NNS 
+6,"CC   ,"
+6, PP$ NNS 
+3, JJ NNS 
+1,NNS POS  IN
+4,POS JJ IN
+4,IN   VBD
+5, PP$ IN
+6,DT NP NN NNS
+1,VBD   IN
+5, JJ .
+6,JJ JJ NNS 
+6, JJR NNS 
+1, NN  VBG
+1,IN   IN
+1, JJ  IN
+6,IN  NN NN
+6,",  NN NNS"
+6,JJR JJ NNS 
+5,JJ JJ .
+5," NN ,"
+5,NN NN  IN
+1,",   VBZ"
+4,DT JJ  VBZ
+6,VB  NNS 
+6,NP JJ NNS 
+6, VBG NNS 
+6, JJ NNS 
+5,AB NN  IN
+5,PP$ NN .
+1,VBG   IN
+5,AB NN  
+5,VBZ  IN
+6,IN  NNS 
+1,JJ NN  .
+1, VBG  IN
+1, JJ  IN
+1,IN   IN
+6,VB  NNS 
+1, DT  IN
+1, DT  IN
+5, PP$  :
+3,JJ NN  IN
+3,CC  :
+6,JJ JJ NNS 
+6,IN  NNS 
+6,VB  NNS 
+4,JJ JJ CC
+5, NN .
+6,RP   NNS
+6, JJ NNS 
+6,DT JJ NN 
+1,PP$ JJ  IN
+4,DT JJ  TO
+6,AB NN NN 
+4,POS JJS  .
+6,VB  NNS 
+4, JJ IN
+4, JJ VBP
+5,DT JJ  IN
+6,DT JJ NN 
+6,DT JJ NNS 
+6,",  NNS "
+6,IN   .
+5, DT  IN
+1,DT JJS  IN
+1,VBN   IN
+5,AB NN  IN
+5,DT NN  IN
+6,CC  NNS 
+6,VB  NNS 
+6, JJR NNS 
+4,"NNS POS ,"
+6,IN   CC
+6,IN  NNS 
+5,JJ NN IN
+6, JJ  TO
+6,IN  NNS 
+6, JJR NNS 
+6,JJ NP NNS 
+6, JJR NNS 
+6, JJR NNS 
+6,RP  NNS 
+6,VBP  NNS 
+6,IN  NNS 
+1, DT  VBN
+4, NN .
+6,VB  JJ NP
+5,"IN   ,"
+5,DT JJ  CC
+1, JJ  IN
+6,VBD  NNS 
+6,VBD  NNS 
+6,VB  NNS 
+6,IN  NN NNS
+3, JJ .
+5," JJ  ,"
+5,"NP NP ,"
+5,NN JJ  IN
+6,IN  JJ NN
+5, PP$  IN
+6,CC   IN
+5,AB NN  IN
+5,DT NN  
+1, NN  IN
+6, DT NNS 
+1, NN  VBD
+6, JJ NNS 
+6, VBG NNS 
+4,DT JJ  CC
+4,RB VBN :
+6,JJ JJ NNS 
+6, NN NNS 
+6,JJ JJ NNS 
+5, DT  IN
+1,IN   IN
+4, PP$ .
+5, NN VBD
+6,VB  NNS 
+6,RP  NNS 
+5, NN RB
+6, DT NN 
+6,  NNS 
+6,CC   CC
+5,IN  IN
+4,PP$ JJ TO
+5,IN  IN
+1,VB   .
+1, JJ  IN
+4,DT JJS  IN
+6, VBG NNS 
+5,VBZ  IN
+5,IN  VBG
+1,"IN   ,"
+4, NN ''
+5, JJ  IN
+5, JJ  VBD
+5, JJ  VBD
+5, JJ  VBZ
+5, JJ  JJ
+5, JJ  IN
+5,NP JJ NN 
+5,JJ JJ NN 
+5, JJ NN 
+5,DT JJ NN 
+1,DT JJ  IN
+5, NN VBD
+6,JJ NP NNS 
+6,"IN   ,"
+6,PP$ JJ NNS 
+6,AB NN NN 
+6,VBP  NNS 
+3,POS JJ VBP
+5," NN  ,"
+4,POS JJ  TO
+1,NP POS  IN
+1,VB   IN
+6,NP JJR NNS 
+6,PP$ JJ NNS 
+6, JJ NNS 
+6,IN  NNS 
+1, PP$  RBR
+5,AB NN  :
+1,NP POS  IN
+4,"IN   ,"
+4,IN   MD
+4, DT IN
+6,VB   IN
+6, JJ NNS 
+6, JJ NNS 
+5,JJ NN IN
+6, JJ NNS 
+6,VB  NNS 
+1,``  VBN
+6, DT  VBN
+3, JJ .
+5,VBZ  IN
+4,RB JJS  IN
+6,JJ JJ NNS 
+6,VBN  NNS 
+6,CC  NNS 
+6,IN  NNS 
+6,VB  NN 
+5,NP JJ  VBD
+5,VBZ  IN
+5,AB NN  .
+3, JJ .
+4,DT JJ  IN
+6, WDT NNS 
+5,DT JJ  IN
+5,VBZ  IN
+5, WP$ IN
+1, JJ  IN
+1, PP$  IN
+4,NNS POS  IN
+4, PP$  IN
+6,CC  NNS 
+5,IN  IN
+5, PP$  TO
+6, JJ NNS 
+6, DT NN 
+6,JJR JJ NNS 
+1,PP$ JJ  IN
+5,VBG   IN
+5,VBZ  IN
+4,IN   CC
+2, JJ  IN
+6, VBG NNS 
+6, JJR NNS 
+5,DT NN  IN
+6,VB  NNS 
+6,JJ NP NNS 
+6,CC   .
+5,DT NN  MD
+6,VB  NNS NN
+6, DT NN NN
+4,JJ JJ .
+6,VBP  NNS 
+6,IN   CC
+6, PP$ NNS 
+6,IN   CC
+6,  NNS 
+5, PP$  TO
+5, DT  IN
+1,VBD   IN
+5, JJ TO
+5,DT NP IN
+6, JJ NNS 
+6,CC  NNS 
+6,"VBN   ,"
+6, JJ NNS 
+1,"JJ NN  ,"
+6, JJR NNS 
+1,VBN   IN
+1,JJ JJ  .
+1,NN POS  IN
+6, DT NN NN
+6,VB  NNS 
+1,JJ JJ  IN
+1,DT JJ  VBD
+1, DT  IN
+6,IN  NNS 
+6, JJ NNS 
+6,JJR NP NNS 
+3,PP$ JJ  VBZ
+1,VBN   IN
+6, PP$ NNS 
+6,AB NN NN 
+6,CC   CC
+5, JJ  IN
+6,IN  NNS 
+6, JJ NNS 
+6,VB  NNS 
+6,VBN   TO
+5,VBZ  IN
+5, PP$  IN
+6,JJ JJ NNS 
+3,AB JJ NNS 
+3,VBN JJ NNS 
+3,JJ NN .
+6,VB  NNS 
+5,VBZ  IN
+6, JJ NNS JJ
+6,   IN
+6,DT JJ JJ NNS
+6,NN JJ NN NNS
+6," VBG  ,"
+5, NN VBD
+6, JJR NNS 
+6, VBG NNS 
+6,VBG  NNS 
+5," NN ,"
+6,RB JJ NNS 
+1,IN   IN
+5,NP POS VBP
+5,AB NN  IN
+5,NN  .
+4,POS JJS ''
+6,JJ JJ NNS 
+3,VBN  VBP
+3, DT .
+6,AB AB NN 
+6,VB  NNS 
+6, DT NN 
+6,VB  NNS 
+6,CC  NNS 
+5, NN  IN
+6, DT NN JJ
+6,DT JJR NNS NNS
+4,PP$ JJS IN
+6,",   CC"
+6,IN  NNS 
+6,IN  NNS 
+6,AB AB  CC
+6,VB  JJ NP
+6, DT NN 
+6,IN  NN 
+1,VBN   IN
+1, JJR  IN
+1,IN   .
+6, JJ NN NNS
+6, JJ NNS 
+6,DT JJ NNS 
+6, JJ NNS JJ
+5,CC  IN
+5, DT NP
+5," NP ,"
+6, NN NNS 
+6,IN  NNS 
+6, JJ NNS 
+1, NN  IN
+1, NN  IN
+6, JJ NNS 
+6, VBN NN NNS
+6, JJR NNS 
+6, NP NNS NN
+6,VB  NNS 
+4, PP$ .
+2, JJ  TO
+4,"DT JJ  ,"
+5,VBN NN  VBZ
+6,DT JJ NN 
+1, JJ  CC
+5," NN ,"
+6, VBG NNS 
+6, JJ NNS 
+6, JJ NNS 
+6, PP$ NN 
+6, JJ NNS 
+1, PP$  IN
+3, JJ .
+1,NP POS  IN
+6, JJ NNS 
+6,VB  NNS 
+5,"DT JJ  ,"
+6,VB  NNS 
+1, DT  IN
+5, NN IN
+5,AB NN  IN
+5,PP$ JJ  IN
+5,"PP$ NN ,"
+6,JJ  NNS 
+3, JJ .
+6,CC  NNS 
+5,JJ NN IN
+4,POS JJ .
+1, JJR  IN
+6,VB  NNS 
+4," JJ ,"
+5, DT  IN
+1,PP$ JJ  IN
+1, JJ  .
+6, JJS NN NNS
+6,IN   .
+6,"CC   ,"
+6,JJ JJ NNS 
+5, DT  :
+6, JJ NNS 
+5,AB NN  IN
+1,IN   IN
+1, NN  IN
+3, JJ .
+6,NN POS NN 
+6, JJ  .
+6,NN POS NNS 
+5,POS NN  IN
+6,IN   CC
+1, JJ  IN
+6,IN  NN NNS
+6,VB  NNS 
+6,VBP   IN
+6, DT NN JJ
+5,AB NN  RB
+6,IN  NNS 
+6, JJ  IN
+6, JJ JJ NP
+5,AB NN  IN
+3,NNS POS .
+1, JJR  IN
+1,DT JJ  IN
+1, PP$  IN
+6,VB  NNS 
+1,VBD   .
+6,VBG  NNS 
+6, JJ NNS 
+5,"NP NP ,"
+5,DT NN  IN
+1, NN  .
+5,JJ NN IN
+1,VBN   IN
+5,VBZ  IN
+6, DT NN JJ
+6, DT  IN
+6,DT JJ JJ NP
+6,VB  NNS 
+6, NP  NNS
+6, JJ NNS 
+6,NP NN NN 
+6,IN  NNS 
+3, JJ  ''
+6,IN   VBN
+6,JJ JJ NNS 
+5,AB NN  IN
+1," DT  ,"
+4, DT IN
+4, DT IN
+6,VB  NNS 
+6, PP$ NNS 
+1, DT  IN
+6,DT JJR NN 
+6,PP$ JJ NNS 
+6,DT JJ NNS 
+6,VB  NNS 
+6,IN  NNS 
+6,IN  NNS 
+6, PP$ NN 
+6, DT  
+4,"NNS POS ,"
+5, PP$  IN
+1, PP$  IN
+6, JJR NNS 
+6, JJ NNS 
+6,",  NNS "
+1,VBN   IN
+1,VBG   IN
+1,VBN   IN
+6,DT JJ NN 
+5,AB NN  IN
+5,CC  IN
+1, VBN  IN
+6,DT JJ NN JJ
+6, DT  VBD
+6,IN  NN NNS
+6,  NNS 
+1,VBN   IN
+1,IN   VBP
+1,JJ NN  IN
+5,PP$ JJ IN
+5,AB NN  IN
+6,CC  NNS 
+1, JJ  IN
+1,NN POS  IN
+6, PP$ NNS 
+6,IN  NNS 
+6,"IN   ,"
+6,VB  NNS 
+6,IN  NNS 
+5, JJ IN
+1,IN   .
+6, JJR NNS 
+6, JJR NNS 
+5,NP POS VBP
+3,POS NN VBP
+4,NP JJ  .
+4,JJ JJ 
+5, JJ  IN
